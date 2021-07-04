@@ -6,6 +6,27 @@ import android.os.Bundle;
 
 public class MainActivity extends AppCompatActivity {
 
+    public enum SkillTypes{
+        Athletics,
+        Burglary,
+        Contacts,
+        Crafts,
+        Deceive,
+        Drive,
+        Empathy,
+        Fight,
+        Investigate,
+        Lore,
+        Notice,
+        Physique,
+        Provoke,
+        Rapport,
+        Resources,
+        Shoot,
+        Stealth,
+        Will,
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
