@@ -233,6 +233,7 @@ public class DBHelper {
             }
             mCursor.moveToNext();
         }
+        mCursor.close();
         return matches;
     }
 
