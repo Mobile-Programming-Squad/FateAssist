@@ -6,118 +6,50 @@ import android.database.Cursor;
 import android.os.Bundle;
 
 //class for managing the database through nicer commands
-//!TBD
+//!TBDs
 public class DBHelper {
-
-    //NOTE: I know a lot of the code here could've been done with loops and it would've been easier
-        //I chose not to because I am dumb, and now I don't want to refactor
-        //-elias
-
     /*
-    Template for creating a charData bundle,
-    just fill in the lowercase terms with the corresponding data
+    For all of these, use getApplicationContext() for the context parameter
 
-    For EditCharacter, DELETE any lines for data that you aren't editing
+    AddCharacter(Context context, Bundle charData)
+        charData MUST contain every element from the AddCharacter bundle template
+        the CHAR_NAME field of charData should be checked with ValidateCharacterName beforehand
 
-    Bundle charData = new Bundle();
-    charData.putString("NAME", name);
-    charData.putString("DESCRIPTION", description);
-    charData.putString("ASPECTS", aspects);
-    charData.putString("STUNTS", stunts);
-    charData.putString("EXTRAS", extras);
-    charData.putString("C2", c2);
-    charData.putString("C4", c4);
-    charData.putString("C6", c6);
-    charData.putString("AV1", av1);
-    charData.putString("AV2", av2);
-    charData.putString("AV3", av3);
-    charData.putString("AV4", av4);
-    charData.putString("AV5", av5);
-    charData.putString("FA1", fa1);
-    charData.putString("FA2", fa2);
-    charData.putString("FA3", fa3);
-    charData.putString("FA4", fa4);
-    charData.putString("FA5", fa5);
-    charData.putString("GO1", go1);
-    charData.putString("GO2", go2);
-    charData.putString("GO3", go3);
-    charData.putString("GO4", go4);
-    charData.putString("GO5", go5);
-    charData.putString("GR1", gr1);
-    charData.putString("GR2", gr2);
-    charData.putString("GR3", gr3);
-    charData.putString("GR4", gr4);
-    charData.putString("GR5", gr5);
-    charData.putString("SU1", su1);
-    charData.putString("SU2", su2);
-    charData.putString("SU3", su3);
-    charData.putString("SU4", su4);
-    charData.putString("SU5", su5);
-    charData.putInt("REFRESH", refresh);
-    charData.putInt("FP", fp);
-    charData.putString("PS1", ps1);
-    charData.putString("PS2", ps2);
-    charData.putString("PS3", ps3);
-    charData.putString("PS4", ps4);
-    charData.putString("MS1", ms1);
-    charData.putString("MS2", ms2);
-    charData.putString("MS3", ms3);
-    charData.putString("MS4", ms4);
-     */
+    RemoveCharacter(Context context, String charName)
+        charName MUST be a name in the database, use ValidateCharacterName for it (if it returns
+        false, the character name exists)
 
-    /*
-    Template for getting data back from the GetCharacter returned bundle
-    (make sure you call the bundle charData)
+    ValidateCharacterName(Context context, String charName)
+        Returns true if the name is NOT contained in the list
+        Returns false otherwise (DON'T add the character in that case)
 
-    String name = charData.getString("NAME");
-    String description = charData.getString("DESCRIPTION");
-    String aspects = charData.getString("ASPECTS");
-    String stunts = charData.getString("STUNTS");
-    String extras = charData.getString("EXTRAS");
-    String c2 = charData.getString("C2");
-    String c4 = charData.getString("C4");
-    String c6 = charData.getString("C6");
-    String av1 = charData.getString("AV1");
-    String av2 = charData.getString("AV2");
-    String av3 = charData.getString("AV3");
-    String av4 = charData.getString("AV4");
-    String av5 = charData.getString("AV5");
-    String fa1 = charData.getString("FA1");
-    String fa2 = charData.getString("FA2");
-    String fa3 = charData.getString("FA3");
-    String fa4 = charData.getString("FA4");
-    String fa5 = charData.getString("FA5");
-    String go1 = charData.getString("GO1");
-    String go2 = charData.getString("GO2");
-    String go3 = charData.getString("GO3");
-    String go4 = charData.getString("GO4");
-    String go5 = charData.getString("GO5");
-    String gr1 = charData.getString("GR1");
-    String gr2 = charData.getString("GR2");
-    String gr3 = charData.getString("GR3");
-    String gr4 = charData.getString("GR4");
-    String gr5 = charData.getString("GR5");
-    String su1 = charData.getString("SU1");
-    String su2 = charData.getString("SU2");
-    String su3 = charData.getString("SU3");
-    String su4 = charData.getString("SU4");
-    String su5 = charData.getString("SU5");
-    int refresh = charData.getInt("REFRESH");
-    int fp = charData.getInt("FP");
-    Boolean ps1 = charData.getBoolean("PS1");
-    Boolean ps2 = charData.getBoolean("PS2");
-    Boolean ps3 = charData.getBoolean("PS3");
-    Boolean ps4 = charData.getBoolean("PS4");
-    Boolean ms1 = charData.getBoolean("MS1");
-    Boolean ms2 = charData.getBoolean("MS2");
-    Boolean ms3 = charData.getBoolean("MS3");
-    Boolean ms4 = charData.getBoolean("MS4");
-     */
+    GetCharacter(Context context, String charName)
+        Returns a bundle containing all the information about the character, use the template
+        to extract the data from it
 
-    //adds bundle to database
-    //MUST include every attribute
+    EditCharacter(Context context, Bundle charData)
+        charData bundle should contain ONLY what you want to modify
+            it MUST contain the CHAR_NAME attribute, if you want to edit the character name, use
+            EditCharacterName instead
+        YOU CANNOT edit the stress values through this, use UpdateCharacterStress for that
+
+    EditCharacterName(Context context, String charName, String newCharName)
+        charName must exist already, use ValidateCharacterName for it (if it returns
+        false, the character name exists so you can use it!)
+
+    RefreshCharacter(Context context, String charName)
+        Sets the character's FP to their Refresh value, user should have a button that runs
+        this function on their view character screen
+
+    UpdateCharacterStress(Context context, String charName, Bundle charData)
+        Updates the boolean stress values to whatever was sent in
+
+    RemoveAllCharacters(Context context)
+        Clears the entire list of characters
+    */
+
     public void AddCharacter(Context context, Bundle charData){
-        String name = charData.getString("NAME");
+        String name = charData.getString("CHAR_NAME");
         String description = charData.getString("DESCRIPTION");
         String aspects = charData.getString("ASPECTS");
         String stunts = charData.getString("STUNTS");
@@ -162,7 +94,7 @@ public class DBHelper {
         Boolean ms4 = charData.getBoolean("MS4");
 
         ContentValues newValues = new ContentValues();
-        newValues.put("NAME", name);
+        newValues.put("CHAR_NAME", name);
         newValues.put("DESCRIPTION", description);
         newValues.put("ASPECTS", aspects);
         newValues.put("STUNTS", stunts);
@@ -209,16 +141,13 @@ public class DBHelper {
         context.getContentResolver().insert(MyContentProvider.CONTENT_URI, newValues);
     }
 
-    //removes row from database corresponding to the character name
     public void RemoveCharacter(Context context, String charName){
-        context.getContentResolver().delete(MyContentProvider.CONTENT_URI, "NAME = " + charName, null);
+        context.getContentResolver().delete(MyContentProvider.CONTENT_URI, "CHAR_NAME = '" + charName + "'", null);
     }
 
-    //returns true if character name is not in the database, returns false if it is
-    //never add a character to the database if the name is unavailable
     public Boolean ValidateCharacterName(Context context, String charName){
         boolean matches = false;
-        String[] proj = new String[]{"NAME"};
+        String[] proj = new String[]{"CHAR_NAME"};
         Cursor mCursor = context.getContentResolver().query(
                 MyContentProvider.CONTENT_URI, proj,
                 null,
@@ -228,29 +157,28 @@ public class DBHelper {
 
         mCursor.moveToFirst();
         while(!mCursor.isAfterLast()) {
-            if(charName.equals(mCursor.getString(mCursor.getColumnIndex("ConfirmationCode")))){
+            if(charName.equals(mCursor.getString(mCursor.getColumnIndex("CHAR_NAME")))){
                 matches = true;
             }
             mCursor.moveToNext();
         }
         mCursor.close();
-        return matches;
+        return !matches;
     }
 
-    //returns bundle with all info of character matching the charName
     public Bundle GetCharacter(Context context, String charName){
         Bundle currentValues = new Bundle();
 
         Cursor mCursor = context.getContentResolver().query(
                 MyContentProvider.CONTENT_URI,
                 null,
-                "NAME ==" + charName,
+                "CHAR_NAME = '" + charName + "'",
                 null,
                 null
         );
         mCursor.moveToFirst();
 
-        currentValues.putString("NAME", mCursor.getString(mCursor.getColumnIndex("NAME")));
+        currentValues.putString("CHAR_NAME", mCursor.getString(mCursor.getColumnIndex("CHAR_NAME")));
         currentValues.putString("DESCRIPTION", mCursor.getString(mCursor.getColumnIndex("DESCRIPTION")));
         currentValues.putString("ASPECTS", mCursor.getString(mCursor.getColumnIndex("ASPECTS")));
         currentValues.putString("STUNTS", mCursor.getString(mCursor.getColumnIndex("STUNTS")));
@@ -298,11 +226,10 @@ public class DBHelper {
         return currentValues;
     }
 
-    //MUST include charName in bundle, everything else optional
     public void EditCharacter(Context context, Bundle charData){
 
 
-        String name = charData.getString("NAME");
+        String name = charData.getString("CHAR_NAME");
         String description = charData.getString("DESCRIPTION");
         String aspects = charData.getString("ASPECTS");
         String stunts = charData.getString("STUNTS");
@@ -335,8 +262,8 @@ public class DBHelper {
         String su3 = charData.getString("SU3");
         String su4 = charData.getString("SU4");
         String su5 = charData.getString("SU5");
-        int refresh = charData.getInt("REFRESH");
-        int fp = charData.getInt("FP");
+        int refresh = charData.getInt("REFRESH", -1);
+        int fp = charData.getInt("FP", -1);
 
         ContentValues currentValues = new ContentValues();
 
@@ -345,13 +272,13 @@ public class DBHelper {
             Cursor mCursor = context.getContentResolver().query(
                     MyContentProvider.CONTENT_URI,
                     null,
-                    "NAME ==" + name,
+                    "CHAR_NAME = '" + name + "'",
                     null,
                     null
             );
             mCursor.moveToFirst();
 
-            currentValues.put("NAME", mCursor.getString(mCursor.getColumnIndex("NAME")));
+            currentValues.put("CHAR_NAME", mCursor.getString(mCursor.getColumnIndex("CHAR_NAME")));
             currentValues.put("DESCRIPTION", mCursor.getString(mCursor.getColumnIndex("DESCRIPTION")));
             currentValues.put("ASPECTS", mCursor.getString(mCursor.getColumnIndex("ASPECTS")));
             currentValues.put("STUNTS", mCursor.getString(mCursor.getColumnIndex("STUNTS")));
@@ -493,10 +420,10 @@ public class DBHelper {
             if(su5 != null){
                 currentValues.put("SU5", su5);
             }
-            if(refresh != 0){
+            if(refresh != -1){
                 currentValues.put("REFRESH", refresh);
             }
-            if(fp != 0){
+            if(fp != -1){
                 currentValues.put("FP", fp);
             }
         }
@@ -507,24 +434,23 @@ public class DBHelper {
         context.getContentResolver().update(
                 MyContentProvider.CONTENT_URI,
                 currentValues,
-                "NAME == " + name,
+                "CHAR_NAME = '" + name + "'",
                 null);
     }
 
-    //self-explanatory, make sure to call ValidateCharacterName on newCharName before calling this
     public void EditCharacterName(Context context, String charName, String newCharName){
         ContentValues currentValues = new ContentValues();
 
         Cursor mCursor = context.getContentResolver().query(
                 MyContentProvider.CONTENT_URI,
                 null,
-                "NAME ==" + charName,
+                "CHAR_NAME = '" + charName + "'",
                 null,
                 null
         );
         mCursor.moveToFirst();
 
-        currentValues.put("NAME", newCharName);
+        currentValues.put("CHAR_NAME", newCharName);
         currentValues.put("DESCRIPTION", mCursor.getString(mCursor.getColumnIndex("DESCRIPTION")));
         currentValues.put("ASPECTS", mCursor.getString(mCursor.getColumnIndex("ASPECTS")));
         currentValues.put("STUNTS", mCursor.getString(mCursor.getColumnIndex("STUNTS")));
@@ -573,24 +499,23 @@ public class DBHelper {
         context.getContentResolver().update(
                 MyContentProvider.CONTENT_URI,
                 currentValues,
-                "NAME == " + charName,
+                "CHAR_NAME = '" + charName + "'",
                 null);
     }
 
-    //sets the character's fate points equal to their Refresh
     public void RefreshCharacter(Context context, String charName){
         ContentValues currentValues = new ContentValues();
 
         Cursor mCursor = context.getContentResolver().query(
                 MyContentProvider.CONTENT_URI,
                 null,
-                "NAME ==" + charName,
+                "CHAR_NAME = '" + charName + "'",
                 null,
                 null
         );
         mCursor.moveToFirst();
 
-        currentValues.put("NAME", mCursor.getString(mCursor.getColumnIndex("NAME")));
+        currentValues.put("CHAR_NAME", mCursor.getString(mCursor.getColumnIndex("CHAR_NAME")));
         currentValues.put("DESCRIPTION", mCursor.getString(mCursor.getColumnIndex("DESCRIPTION")));
         currentValues.put("ASPECTS", mCursor.getString(mCursor.getColumnIndex("ASPECTS")));
         currentValues.put("STUNTS", mCursor.getString(mCursor.getColumnIndex("STUNTS")));
@@ -640,7 +565,7 @@ public class DBHelper {
         context.getContentResolver().update(
                 MyContentProvider.CONTENT_URI,
                 currentValues,
-                "NAME == " + charName,
+                "CHAR_NAME = '" + charName + "'",
                 null);
     }
 
@@ -659,13 +584,13 @@ public class DBHelper {
         Cursor mCursor = context.getContentResolver().query(
                 MyContentProvider.CONTENT_URI,
                 null,
-                "NAME ==" + charName,
+                "CHAR_NAME = '" + charName + "'",
                 null,
                 null
         );
         mCursor.moveToFirst();
 
-        currentValues.put("NAME", mCursor.getString(mCursor.getColumnIndex("NAME")));
+        currentValues.put("CHAR_NAME", mCursor.getString(mCursor.getColumnIndex("CHAR_NAME")));
         currentValues.put("DESCRIPTION", mCursor.getString(mCursor.getColumnIndex("DESCRIPTION")));
         currentValues.put("ASPECTS", mCursor.getString(mCursor.getColumnIndex("ASPECTS")));
         currentValues.put("STUNTS", mCursor.getString(mCursor.getColumnIndex("STUNTS")));
@@ -714,7 +639,11 @@ public class DBHelper {
         context.getContentResolver().update(
                 MyContentProvider.CONTENT_URI,
                 currentValues,
-                "NAME == " + charName,
+                "CHAR_NAME = '" + charName + "'",
                 null);
+    }
+
+    public void RemoveAllCharacters(Context context){
+        context.getContentResolver().delete(MyContentProvider.CONTENT_URI, null, null);
     }
 }
