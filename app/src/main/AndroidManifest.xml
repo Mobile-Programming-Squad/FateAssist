@@ -9,9 +9,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.FateAssist">
+        <provider
+            android:name=".MyContentProvider"
+            android:authorities="com.example.fateassist.provider"
+            android:enabled="true"
+            android:exported="true"></provider>
+
         <activity
             android:name=".MainActivity"
-            android:label="FateAssist" >
+            android:label="FateAssist">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
