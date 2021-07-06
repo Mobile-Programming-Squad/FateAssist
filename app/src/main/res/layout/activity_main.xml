@@ -8,60 +8,167 @@
 
     <com.google.android.material.chip.Chip
         android:id="@+id/playButton"
-        android:layout_width="287dp"
-        android:layout_height="69dp"
-        android:layout_marginStart="62dp"
-        android:layout_marginTop="42dp"
+        android:layout_width="224dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="92dp"
+        android:layout_marginTop="39dp"
         android:text="Play"
         android:textAlignment="center"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/appLabel" />
+        app:layout_constraintTop_toBottomOf="@+id/character4Label" />
 
     <TextView
-        android:id="@+id/appLabel"
-        android:layout_width="279dp"
-        android:layout_height="68dp"
-        android:layout_marginStart="66dp"
-        android:layout_marginTop="16dp"
-        android:text="FateAssist"
+        android:id="@+id/character4Label"
+        android:layout_width="73dp"
+        android:layout_height="41dp"
+        android:layout_marginStart="46dp"
+        android:layout_marginTop="10dp"
+        android:text="@string/profile4_label"
+        android:textAlignment="center"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/character4Button" />
+
+    <TextView
+        android:id="@+id/character5Label"
+        android:layout_width="73dp"
+        android:layout_height="41dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="10dp"
+        android:text="@string/profile5_label"
+        android:textAlignment="center"
+        app:layout_constraintStart_toEndOf="@+id/character4Label"
+        app:layout_constraintTop_toBottomOf="@+id/character5Button" />
+
+    <TextView
+        android:id="@+id/character6Label"
+        android:layout_width="73dp"
+        android:layout_height="41dp"
+        android:layout_marginStart="49dp"
+        android:layout_marginTop="10dp"
+        android:text="@string/profile6_label"
+        android:textAlignment="center"
+        app:layout_constraintStart_toEndOf="@+id/character5Label"
+        app:layout_constraintTop_toBottomOf="@+id/character6Button" />
+
+    <TextView
+        android:id="@+id/fateLabel"
+        android:layout_width="318dp"
+        android:layout_height="77dp"
+        android:layout_marginStart="46dp"
+        android:layout_marginTop="34dp"
+        android:fontFamily="sans-serif"
+        android:text="@string/app_name"
         android:textAlignment="center"
         android:textColor="#000000"
-        android:textSize="24sp"
+        android:textSize="34sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <com.google.android.material.chip.Chip
-        android:id="@+id/characterButton"
-        android:layout_width="287dp"
+    <ImageButton
+        android:id="@+id/character1Button"
+        android:layout_width="75dp"
         android:layout_height="69dp"
-        android:layout_marginStart="62dp"
-        android:layout_marginTop="37dp"
-        android:text="Edit Characters"
+        android:layout_marginStart="46dp"
+        android:layout_marginTop="55dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fateLabel"
+        app:srcCompat="@android:drawable/ic_input_add" />
+
+    <ImageButton
+        android:id="@+id/character2Button"
+        android:layout_width="75dp"
+        android:layout_height="69dp"
+        android:layout_marginStart="47dp"
+        android:layout_marginTop="55dp"
+        app:layout_constraintStart_toEndOf="@+id/character1Button"
+        app:layout_constraintTop_toBottomOf="@+id/fateLabel"
+        app:srcCompat="@android:drawable/ic_input_add" />
+
+    <ImageButton
+        android:id="@+id/character3Button"
+        android:layout_width="75dp"
+        android:layout_height="69dp"
+        android:layout_marginStart="46dp"
+        android:layout_marginTop="55dp"
+        app:layout_constraintStart_toEndOf="@+id/character2Button"
+        app:layout_constraintTop_toBottomOf="@+id/fateLabel"
+        app:srcCompat="@android:drawable/ic_input_add" />
+
+    <ImageButton
+        android:id="@+id/character4Button"
+        android:layout_width="75dp"
+        android:layout_height="69dp"
+        android:layout_marginStart="46dp"
+        android:layout_marginTop="55dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/character1Label"
+        app:srcCompat="@android:drawable/ic_input_add" />
+
+    <ImageButton
+        android:id="@+id/character5Button"
+        android:layout_width="75dp"
+        android:layout_height="69dp"
+        android:layout_marginStart="47dp"
+        android:layout_marginTop="55dp"
+        app:layout_constraintStart_toEndOf="@+id/character4Button"
+        app:layout_constraintTop_toBottomOf="@+id/character2Label"
+        app:srcCompat="@android:drawable/ic_input_add" />
+
+    <ImageButton
+        android:id="@+id/character6Button"
+        android:layout_width="75dp"
+        android:layout_height="69dp"
+        android:layout_marginStart="46dp"
+        android:layout_marginTop="55dp"
+        app:layout_constraintStart_toEndOf="@+id/character5Button"
+        app:layout_constraintTop_toBottomOf="@+id/character3Label"
+        app:srcCompat="@android:drawable/ic_input_add" />
+
+    <TextView
+        android:id="@+id/character2Label"
+        android:layout_width="73dp"
+        android:layout_height="41dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="10dp"
+        android:text="@string/profile2_label"
+        android:textAlignment="center"
+        app:layout_constraintStart_toEndOf="@+id/character1Label"
+        app:layout_constraintTop_toBottomOf="@+id/character2Button" />
+
+    <TextView
+        android:id="@+id/character1Label"
+        android:layout_width="73dp"
+        android:layout_height="41dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="10dp"
+        android:text="@string/profile1_label"
+        android:textAlignment="center"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/character1Button" />
+
+    <TextView
+        android:id="@+id/character3Label"
+        android:layout_width="73dp"
+        android:layout_height="38dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="10dp"
+        android:text="@string/profile3_label"
+        android:textAlignment="center"
+        app:layout_constraintStart_toEndOf="@+id/character2Label"
+        app:layout_constraintTop_toBottomOf="@+id/character3Button" />
+
+    <com.google.android.material.chip.Chip
+        android:id="@+id/rulesButton"
+        android:layout_width="224dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="92dp"
+        android:layout_marginTop="20dp"
+        android:text="Rules"
         android:textAlignment="center"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/playButton" />
 
-    <com.google.android.material.chip.Chip
-        android:id="@+id/chip6"
-        android:layout_width="287dp"
-        android:layout_height="69dp"
-        android:layout_marginStart="62dp"
-        android:layout_marginTop="37dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/characterButton" />
-
-    <com.google.android.material.chip.Chip
-        android:id="@+id/rulesButton"
-        android:layout_width="287dp"
-        android:layout_height="69dp"
-        android:layout_marginStart="62dp"
-        android:layout_marginTop="37dp"
-        android:text="Rules"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/chip6" />
 </androidx.constraintlayout.widget.ConstraintLayout>

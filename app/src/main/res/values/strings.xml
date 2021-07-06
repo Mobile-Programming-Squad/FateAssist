@@ -1,4 +1,10 @@
 <resources>
     <string name="app_name">FateAssist</string>
-    <string name="add_character_label">Add Character</string>
+    <string name="profile1_label">Profile 1</string>
+    <string name="profile2_label">Profile 2</string>
+    <string name="profile3_label">Profile 3</string>
+    <string name="profile4_label">Profile 4</string>
+    <string name="profile5_label">Profile 5</string>
+    <string name="profile6_label">Profile 6</string>
+
 </resources>
