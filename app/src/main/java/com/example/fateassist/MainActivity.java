@@ -97,7 +97,6 @@ public class MainActivity extends AppCompatActivity {
         character5Label = (TextView) findViewById(R.id.character5Label);
         character6Label = (TextView) findViewById(R.id.character6Label);
 
-        // NOT YET IMPLEMENTED
         character1Button.setOnClickListener(imageListener);
         character2Button.setOnClickListener(imageListener);
         character3Button.setOnClickListener(imageListener);
@@ -108,14 +107,80 @@ public class MainActivity extends AppCompatActivity {
         // NOT YET IMPLEMENTED
         playButton.setOnClickListener(playListener);
 
-        // NOT YET IMPLEMENTED
+        // IMPLEMENTED WITH URL INSTEAD OF DOCUMENT
         rulesButton.setOnClickListener(rulesListener);
     }
 
-    // NOT YET IMPLEMENTED
     View.OnClickListener imageListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
+            Intent intent;
+            if (v == character1Button) {
+                if (character1 == false) {
+                    character1 = true;
+                    intent = new Intent(MainActivity.this, AddCharacter.class);
+                    startActivity(intent);
+                }
+                else {
+                    intent = new Intent(MainActivity.this, UpdateCharacter.class);
+                    startActivity(intent);
+                }
+            }
+            if (v == character2Button){
+                if (character2 == false){
+                    character2 = true;
+                    intent = new Intent(MainActivity.this, AddCharacter.class);
+                    startActivity(intent);
+                }
+                else {
+                    intent = new Intent(MainActivity.this, UpdateCharacter.class);
+                    startActivity(intent);
+                }
+            }
+            if (v == character3Button){
+                if (character3 == false){
+                    character3 = true;
+                    intent = new Intent(MainActivity.this, AddCharacter.class);
+                    startActivity(intent);
+                }
+                else {
+                    intent = new Intent(MainActivity.this, UpdateCharacter.class);
+                    startActivity(intent);
+                }
+            }
+            if (v == character4Button){
+                if (character4 == false){
+                    character4 = true;
+                    intent = new Intent(MainActivity.this, AddCharacter.class);
+                    startActivity(intent);
+                }
+                else {
+                    intent = new Intent(MainActivity.this, UpdateCharacter.class);
+                    startActivity(intent);
+                }
+            }
+            if (v == character5Button){
+                if (character5 == false){
+                    character5 = true;
+                    intent = new Intent(MainActivity.this, AddCharacter.class);
+                    startActivity(intent);
+                }
+                else {
+                    intent = new Intent(MainActivity.this, UpdateCharacter.class);
+                    startActivity(intent);
+                }
+            }
+            if (v == character6Button){
+                if (character6 == false){
+                    character6 = true;
+                    intent = new Intent(MainActivity.this, AddCharacter.class);
+                    startActivity(intent);
+                }
+                else {
+                    intent = new Intent(MainActivity.this, UpdateCharacter.class);
+                    startActivity(intent);
+                }
+            }
 
         }
     };
@@ -128,7 +193,7 @@ public class MainActivity extends AppCompatActivity {
         }
     };
 
-    // NOT YET IMPLEMENTED WITH DOCUMENT
+    // IMPLEMENTED WITH URL INSTEAD OF DOCUMENT
     View.OnClickListener rulesListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
