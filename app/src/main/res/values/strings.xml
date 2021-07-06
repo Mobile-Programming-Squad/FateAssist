@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">FateAssist</string>
+    <string name="add_character_label">Add Character</string>
 </resources>
