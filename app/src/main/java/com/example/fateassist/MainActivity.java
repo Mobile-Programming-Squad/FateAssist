@@ -5,12 +5,15 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CursorAdapter;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import java.io.File;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -125,11 +128,14 @@ public class MainActivity extends AppCompatActivity {
         }
     };
 
-    // NOT YET IMPLEMENTED
+    // NOT YET IMPLEMENTED WITH DOCUMENT
     View.OnClickListener rulesListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-
+            // allows user to go to rules website until we can get a document interface
+            Uri uri = Uri.parse("https://fate-srd.com/fate-core");
+            Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+            startActivity(intent);
         }
     };
 }
