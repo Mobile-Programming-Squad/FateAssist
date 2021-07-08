@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".AddCharacter">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/extrasLabel"
+            android:layout_width="73dp"
+            android:layout_height="27dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="121dp"
+            android:text="Extras"
+            android:textAlignment="center"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/stuntLabel" />
+
+        <ImageButton
+            android:id="@+id/avatarPictureButton"
+            android:layout_width="76dp"
+            android:layout_height="85dp"
+            android:layout_marginStart="167dp"
+            android:layout_marginTop="14dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/profileLabel"
+            app:srcCompat="@android:drawable/ic_menu_add" />
+
+        <TextView
+            android:id="@+id/avatarLabel"
+            android:layout_width="76dp"
+            android:layout_height="33dp"
+            android:layout_marginStart="167dp"
+            android:text="Character Avatar"
+            android:textAlignment="center"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/avatarPictureButton" />
+
+        <TextView
+            android:id="@+id/profileLabel"
+            android:layout_width="153dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="128dp"
+            android:layout_marginTop="16dp"
+            android:text="TextView"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/nameLabel"
+            android:layout_width="50dp"
+            android:layout_height="23dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="208dp"
+            android:text="Name"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/nameField"
+            android:layout_width="214dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="44dp"
+            android:layout_marginTop="12dp"
+            android:ems="10"
+            android:hint="Name"
+            android:inputType="textPersonName"
+            app:layout_constraintStart_toEndOf="@+id/nameLabel"
+            app:layout_constraintTop_toBottomOf="@+id/avatarLabel" />
+
+        <TextView
+            android:id="@+id/descriptionLabel"
+            android:layout_width="73dp"
+            android:layout_height="27dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="104dp"
+            android:text="Description"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/nameLabel" />
+
+        <TextView
+            android:id="@+id/aspectsLabel"
+            android:layout_width="73dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="120dp"
+            android:text="Aspects"
+            android:textAlignment="center"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/descriptionLabel" />
+
+        <EditText
+            android:id="@+id/descriptionField"
+            android:layout_width="220dp"
+            android:layout_height="140dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/textbox"
+            android:ems="10"
+            android:gravity="start"
+            android:hint="Description"
+            android:inputType="textMultiLine"
+            android:isScrollContainer="true"
+            android:textAlignment="textStart"
+            app:layout_constraintStart_toEndOf="@+id/descriptionLabel"
+            app:layout_constraintTop_toBottomOf="@+id/nameField" />
+
+        <EditText
+            android:id="@+id/aspectsField"
+            android:layout_width="220dp"
+            android:layout_height="140dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/textbox"
+            android:ems="10"
+            android:gravity="start"
+            android:hint="Aspects"
+            android:inputType="textMultiLine"
+            android:isScrollContainer="true"
+            android:textAlignment="viewStart"
+            app:layout_constraintStart_toEndOf="@+id/aspectsLabel"
+            app:layout_constraintTop_toBottomOf="@+id/descriptionField" />
+
+        <EditText
+            android:id="@+id/stuntsField"
+            android:layout_width="220dp"
+            android:layout_height="140dp"
+            android:layout_marginStart="35dp"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/textbox"
+            android:ems="10"
+            android:gravity="start"
+            android:hint="Stunts"
+            android:inputType="textMultiLine"
+            android:isScrollContainer="true"
+            android:textAlignment="viewStart"
+            app:layout_constraintStart_toEndOf="@+id/stuntLabel"
+            app:layout_constraintTop_toBottomOf="@+id/aspectsField" />
+
+        <EditText
+            android:id="@+id/extrasField"
+            android:layout_width="220dp"
+            android:layout_height="140dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/textbox"
+            android:ems="10"
+            android:gravity="start"
+            android:hint="Extras"
+            android:inputType="textMultiLine"
+            android:isScrollContainer="true"
+            android:textAlignment="viewStart"
+            app:layout_constraintStart_toEndOf="@+id/extrasLabel"
+            app:layout_constraintTop_toBottomOf="@+id/stuntsField" />
+
+        <TextView
+            android:id="@+id/consequencesLabel"
+            android:layout_width="129dp"
+            android:layout_height="45dp"
+            android:layout_marginStart="132dp"
+            android:layout_marginTop="44dp"
+            android:text="Consequences"
+            android:textAlignment="center"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/extrasField" />
+
+        <EditText
+            android:id="@+id/consequence1Field"
+            android:layout_width="222dp"
+            android:layout_height="47dp"
+            android:layout_marginStart="84dp"
+            android:layout_marginTop="14dp"
+            android:ems="10"
+            android:hint="Consequence"
+            android:inputType="textPersonName"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/consequencesLabel" />
+
+        <EditText
+            android:id="@+id/consequence2Field"
+            android:layout_width="222dp"
+            android:layout_height="47dp"
+            android:layout_marginStart="84dp"
+            android:layout_marginTop="14dp"
+            android:ems="10"
+            android:hint="Consequence"
+            android:inputType="textPersonName"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/consequence1Field" />
+
+        <EditText
+            android:id="@+id/consequence3Field"
+            android:layout_width="222dp"
+            android:layout_height="47dp"
+            android:layout_marginStart="84dp"
+            android:layout_marginTop="14dp"
+            android:ems="10"
+            android:hint="Consequence"
+            android:inputType="textPersonName"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/consequence2Field" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/cancelButton"
+            android:layout_width="156dp"
+            android:layout_height="64dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="28dp"
+            android:text="Back"
+            android:textAlignment="center"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/consequence3Field" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/nextButton"
+            android:layout_width="156dp"
+            android:layout_height="64dp"
+            android:layout_marginStart="27dp"
+            android:layout_marginTop="28dp"
+            android:text="Next"
+            android:textAlignment="center"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/cancelButton"
+            app:layout_constraintTop_toBottomOf="@+id/consequence3Field" />
+
+        <TextView
+            android:id="@+id/stuntLabel"
+            android:layout_width="51dp"
+            android:layout_height="28dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="128dp"
+            android:text="Stunts"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/aspectsLabel" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
