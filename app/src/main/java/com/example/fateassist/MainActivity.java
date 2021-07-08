@@ -51,6 +51,8 @@ public class MainActivity extends AppCompatActivity {
     static boolean character4 = false;
     static boolean character5 = false;
     static boolean character6 = false;
+    static boolean success = false;
+    String profile;
 
     //This may or may not be useful to you, just know that these should be the options
     //for each skill box
@@ -109,6 +111,9 @@ public class MainActivity extends AppCompatActivity {
 
         // IMPLEMENTED WITH URL INSTEAD OF DOCUMENT
         rulesButton.setOnClickListener(rulesListener);
+
+        Intent intent = getIntent();
+
     }
 
     View.OnClickListener imageListener = new View.OnClickListener() {
@@ -118,66 +123,90 @@ public class MainActivity extends AppCompatActivity {
             if (v == character1Button) {
                 if (character1 == false) {
                     character1 = true;
+                    profile = character1Label.getText().toString();
                     intent = new Intent(MainActivity.this, AddCharacter.class);
+                    intent.putExtra("profileName", profile);
                     startActivity(intent);
                 }
                 else {
+                    profile = character1Label.getText().toString();
                     intent = new Intent(MainActivity.this, UpdateCharacter.class);
+                    intent.putExtra("profileName", profile);
                     startActivity(intent);
                 }
             }
             if (v == character2Button){
                 if (character2 == false){
                     character2 = true;
+                    profile = character2Label.getText().toString();
                     intent = new Intent(MainActivity.this, AddCharacter.class);
+                    intent.putExtra("profileName", profile);
                     startActivity(intent);
                 }
                 else {
+                    profile = character2Label.getText().toString();
                     intent = new Intent(MainActivity.this, UpdateCharacter.class);
+                    intent.putExtra("profileName", profile);
                     startActivity(intent);
                 }
             }
             if (v == character3Button){
                 if (character3 == false){
                     character3 = true;
+                    profile = character3Label.getText().toString();
                     intent = new Intent(MainActivity.this, AddCharacter.class);
+                    intent.putExtra("profileName", profile);
                     startActivity(intent);
                 }
                 else {
+                    profile = character3Label.getText().toString();
                     intent = new Intent(MainActivity.this, UpdateCharacter.class);
+                    intent.putExtra("profileName", profile);
                     startActivity(intent);
                 }
             }
             if (v == character4Button){
                 if (character4 == false){
                     character4 = true;
+                    profile = character4Label.getText().toString();
                     intent = new Intent(MainActivity.this, AddCharacter.class);
+                    intent.putExtra("profileName", profile);
                     startActivity(intent);
                 }
                 else {
+                    profile = character4Label.getText().toString();
                     intent = new Intent(MainActivity.this, UpdateCharacter.class);
+                    intent.putExtra("profileName", profile);
                     startActivity(intent);
                 }
             }
             if (v == character5Button){
                 if (character5 == false){
                     character5 = true;
+                    profile = character5Label.getText().toString();
                     intent = new Intent(MainActivity.this, AddCharacter.class);
+                    intent.putExtra("profileName", profile);
                     startActivity(intent);
                 }
                 else {
+                    profile = character5Label.getText().toString();
                     intent = new Intent(MainActivity.this, UpdateCharacter.class);
+                    intent.putExtra("profileName", profile);
                     startActivity(intent);
                 }
             }
             if (v == character6Button){
                 if (character6 == false){
                     character6 = true;
+                    profile = character6Label.getText().toString();
                     intent = new Intent(MainActivity.this, AddCharacter.class);
+                    intent.putExtra("profileName", profile);
                     startActivity(intent);
                 }
                 else {
+                    profile = character6Label.getText().toString();
                     intent = new Intent(MainActivity.this, UpdateCharacter.class);
+                    intent.putExtra("profileName", profile);
                     startActivity(intent);
                 }
             }

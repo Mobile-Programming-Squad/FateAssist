@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.FateAssist">
-        <activity android:name=".UpdateCharacter"></activity>
+        <activity android:name=".AddSkills"></activity>
+        <activity android:name=".UpdateCharacter" />
         <activity android:name=".AddCharacter" />
 
         <provider
