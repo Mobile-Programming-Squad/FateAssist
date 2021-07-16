@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
@@ -51,8 +52,15 @@ public class MainActivity extends AppCompatActivity {
     static boolean character4 = false;
     static boolean character5 = false;
     static boolean character6 = false;
-    static boolean success = false;
-    String profile;
+    String profile = "";
+
+    // shared preferences
+    SharedPreferences profile1;
+    SharedPreferences profile2;
+    SharedPreferences profile3;
+    SharedPreferences profile4;
+    SharedPreferences profile5;
+    SharedPreferences profile6;
 
     //This may or may not be useful to you, just know that these should be the options
     //for each skill box
@@ -99,6 +107,20 @@ public class MainActivity extends AppCompatActivity {
         character5Label = (TextView) findViewById(R.id.character5Label);
         character6Label = (TextView) findViewById(R.id.character6Label);
 
+        profile1 = getSharedPreferences("profiles", 0);
+        profile2 = getSharedPreferences("profiles", 0);
+        profile3 = getSharedPreferences("profiles", 0);
+        profile4 = getSharedPreferences("profiles", 0);
+        profile5 = getSharedPreferences("profiles", 0);
+        profile6 = getSharedPreferences("profiles", 0);
+        character1 = profile1.getBoolean("profile1", false);
+        character2 = profile2.getBoolean("profile2", false);
+        character3 = profile3.getBoolean("profile3", false);
+        character4 = profile4.getBoolean("profile4", false);
+        character5 = profile5.getBoolean("profile5", false);
+        character6 = profile6.getBoolean("profile6", false);
+
+
         character1Button.setOnClickListener(imageListener);
         character2Button.setOnClickListener(imageListener);
         character3Button.setOnClickListener(imageListener);
@@ -112,8 +134,20 @@ public class MainActivity extends AppCompatActivity {
         // IMPLEMENTED WITH URL INSTEAD OF DOCUMENT
         rulesButton.setOnClickListener(rulesListener);
 
-        Intent intent = getIntent();
 
+        }
+
+
+
+    @Override
+    protected void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+        character1 = profile1.getBoolean("profile1", false);
+        character2 = profile2.getBoolean("profile2", false);
+        character3 = profile3.getBoolean("profile3", false);
+        character4 = profile4.getBoolean("profile4", false);
+        character5 = profile5.getBoolean("profile5", false);
+        character6 = profile6.getBoolean("profile6", false);
     }
 
     View.OnClickListener imageListener = new View.OnClickListener() {
@@ -122,91 +156,73 @@ public class MainActivity extends AppCompatActivity {
             Intent intent;
             if (v == character1Button) {
                 if (character1 == false) {
-                    character1 = true;
-                    profile = character1Label.getText().toString();
                     intent = new Intent(MainActivity.this, AddCharacter.class);
-                    intent.putExtra("profileName", profile);
+                    intent.putExtra("profile", 1);
                     startActivity(intent);
                 }
                 else {
-                    profile = character1Label.getText().toString();
                     intent = new Intent(MainActivity.this, UpdateCharacter.class);
-                    intent.putExtra("profileName", profile);
+                    intent.putExtra("profile", 1);
                     startActivity(intent);
                 }
             }
             if (v == character2Button){
                 if (character2 == false){
-                    character2 = true;
-                    profile = character2Label.getText().toString();
                     intent = new Intent(MainActivity.this, AddCharacter.class);
-                    intent.putExtra("profileName", profile);
+                    intent.putExtra("profile", 2);
                     startActivity(intent);
                 }
                 else {
-                    profile = character2Label.getText().toString();
                     intent = new Intent(MainActivity.this, UpdateCharacter.class);
-                    intent.putExtra("profileName", profile);
+                    intent.putExtra("profile", 2);
                     startActivity(intent);
                 }
             }
             if (v == character3Button){
                 if (character3 == false){
-                    character3 = true;
-                    profile = character3Label.getText().toString();
                     intent = new Intent(MainActivity.this, AddCharacter.class);
-                    intent.putExtra("profileName", profile);
+                    intent.putExtra("profile", 3);
                     startActivity(intent);
                 }
                 else {
-                    profile = character3Label.getText().toString();
                     intent = new Intent(MainActivity.this, UpdateCharacter.class);
-                    intent.putExtra("profileName", profile);
+                    intent.putExtra("profile", 3);
                     startActivity(intent);
                 }
             }
             if (v == character4Button){
                 if (character4 == false){
-                    character4 = true;
-                    profile = character4Label.getText().toString();
                     intent = new Intent(MainActivity.this, AddCharacter.class);
-                    intent.putExtra("profileName", profile);
+                    intent.putExtra("profile", 4);
                     startActivity(intent);
                 }
                 else {
-                    profile = character4Label.getText().toString();
                     intent = new Intent(MainActivity.this, UpdateCharacter.class);
-                    intent.putExtra("profileName", profile);
+                    intent.putExtra("profile", 4);
                     startActivity(intent);
                 }
             }
             if (v == character5Button){
                 if (character5 == false){
-                    character5 = true;
-                    profile = character5Label.getText().toString();
                     intent = new Intent(MainActivity.this, AddCharacter.class);
-                    intent.putExtra("profileName", profile);
+                    intent.putExtra("profile", 5);
                     startActivity(intent);
                 }
                 else {
-                    profile = character5Label.getText().toString();
                     intent = new Intent(MainActivity.this, UpdateCharacter.class);
-                    intent.putExtra("profileName", profile);
+                    intent.putExtra("profile", 5);
                     startActivity(intent);
                 }
             }
             if (v == character6Button){
                 if (character6 == false){
-                    character6 = true;
-                    profile = character6Label.getText().toString();
                     intent = new Intent(MainActivity.this, AddCharacter.class);
-                    intent.putExtra("profileName", profile);
+                    intent.putExtra("profile", 6);
                     startActivity(intent);
                 }
                 else {
-                    profile = character6Label.getText().toString();
                     intent = new Intent(MainActivity.this, UpdateCharacter.class);
-                    intent.putExtra("profileName", profile);
+                    intent.putExtra("profile", 6);
                     startActivity(intent);
                 }
             }
