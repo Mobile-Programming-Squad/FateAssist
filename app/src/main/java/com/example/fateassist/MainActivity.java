@@ -1,20 +1,30 @@
 package com.example.fateassist;
 
+import androidx.activity.result.ActivityResult;
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
+import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
+import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CursorAdapter;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -85,6 +95,88 @@ public class MainActivity extends AppCompatActivity {
         Will,
     }
 
+    //This gets called at the end of OnCreate with a parameter to pick images
+    //When callback happens, it creates a sample character in the database with that image stored,
+    //then immediately retrieves the image and displays it on an image component
+    ActivityResultLauncher<String> SampleGetContent = registerForActivityResult(new ActivityResultContracts.GetContent(),
+            new ActivityResultCallback<Uri>() {
+                @Override
+                public void onActivityResult(Uri uri) {
+                    // Handle the returned Uri
+                    Bitmap bitmap = null;
+                    try {
+                        bitmap = MediaStore.Images.Media.getBitmap(getApplicationContext().getContentResolver(), uri);
+                        ImageView img = findViewById(R.id.sampleImageView);
+
+                        byte[] imgBytes = DBHelper.getBytes(bitmap);
+
+                        Bundle charData = new Bundle();
+
+                        charData.putString("CHAR_NAME",   "CHAR_NAME");
+                        charData.putString("DESCRIPTION", "DESCRIPTION");
+                        charData.putString("ASPECTS",     "ASPECTS");
+                        charData.putString("STUNTS",      "STUNTS");
+                        charData.putString("EXTRAS",      "EXTRAS");
+                        charData.putString("C2",          "C2");
+                        charData.putString("C4",          "C4");
+                        charData.putString("C6",          "C6");
+                        charData.putString("AV1",         "AV1");
+                        charData.putString("AV2",         "AV2");
+                        charData.putString("AV3",         "AV3");
+                        charData.putString("AV4",         "AV4");
+                        charData.putString("AV5",         "AV5");
+                        charData.putString("FA1",         "FA1");
+                        charData.putString("FA2",         "FA2");
+                        charData.putString("FA3",         "FA3");
+                        charData.putString("FA4",         "FA4");
+                        charData.putString("FA5",         "FA5");
+                        charData.putString("GO1",         "GO1");
+                        charData.putString("GO2",         "GO2");
+                        charData.putString("GO3",         "GO3");
+                        charData.putString("GO4",         "GO4");
+                        charData.putString("GO5",         "GO5");
+                        charData.putString("GR1",         "GR1");
+                        charData.putString("GR2",         "GR2");
+                        charData.putString("GR3",         "GR3");
+                        charData.putString("GR4",         "GR4");
+                        charData.putString("GR5",         "GR5");
+                        charData.putString("SU1",         "SU1");
+                        charData.putString("SU2",         "SU2");
+                        charData.putString("SU3",         "SU3");
+                        charData.putString("SU4",         "SU4");
+                        charData.putString("SU5",         "SU5");
+                        charData.putInt("REFRESH",        123);
+                        charData.putInt("FP",             123);
+                        charData.putBoolean("PS1",        false);
+                        charData.putBoolean("PS2",        false);
+                        charData.putBoolean("PS3",        false);
+                        charData.putBoolean("PS4",        false);
+                        charData.putBoolean("MS1",        false);
+                        charData.putBoolean("MS2",        false);
+                        charData.putBoolean("MS3",        false);
+                        charData.putBoolean("MS4",        false);
+                        charData.putByteArray("IMG",      imgBytes);
+
+                        DBHelper newHelper = new DBHelper();
+
+                        newHelper.AddCharacter(getApplicationContext(), charData);
+
+                        Bundle newBundle = newHelper.GetCharacter(getApplicationContext(), "CHAR_NAME");
+                        byte[] newBytes = newBundle.getByteArray("IMG");
+
+                        Bitmap newbitmap = DBHelper.getImage(newBytes);
+
+                        img.setImageBitmap(newbitmap);
+                    } catch (IOException e) {
+                        // TODO Auto-generated catch block
+                        e.printStackTrace();
+                    }
+
+                }
+            }
+    );
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -133,6 +225,8 @@ public class MainActivity extends AppCompatActivity {
 
         // IMPLEMENTED WITH URL INSTEAD OF DOCUMENT
         rulesButton.setOnClickListener(rulesListener);
+
+        SampleGetContent.launch("image/*");
 
 
         }
