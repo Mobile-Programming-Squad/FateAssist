@@ -49,6 +49,7 @@ public class MyContentProvider extends ContentProvider {
                     "SU5 TEXT, " +
                     "REFRESH INT, " +
                     "FP INT, " +
+                    "IMG BLOB, " +
                     "PS1 BOOL, " +
                     "PS2 BOOL, " +
                     "PS3 BOOL, " +

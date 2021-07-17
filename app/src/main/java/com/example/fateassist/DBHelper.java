@@ -92,6 +92,7 @@ public class DBHelper {
         Boolean ms2 = charData.getBoolean("MS2");
         Boolean ms3 = charData.getBoolean("MS3");
         Boolean ms4 = charData.getBoolean("MS4");
+        byte[] image = charData.getByteArray("IMG");
 
         ContentValues newValues = new ContentValues();
         newValues.put("CHAR_NAME", name);
@@ -137,9 +138,12 @@ public class DBHelper {
         newValues.put("MS2", ms2);
         newValues.put("MS3", ms3);
         newValues.put("MS4", ms4);
+        newValues.put("IMG", image);
 
         context.getContentResolver().insert(MyContentProvider.CONTENT_URI, newValues);
     }
+
+
 
     public void RemoveCharacter(Context context, String charName){
         context.getContentResolver().delete(MyContentProvider.CONTENT_URI, "CHAR_NAME = '" + charName + "'", null);
@@ -221,6 +225,7 @@ public class DBHelper {
         currentValues.putBoolean("MS2", mCursor.getInt(mCursor.getColumnIndex("MS2")) > 0);
         currentValues.putBoolean("MS3", mCursor.getInt(mCursor.getColumnIndex("MS3")) > 0);
         currentValues.putBoolean("MS4", mCursor.getInt(mCursor.getColumnIndex("MS4")) > 0);
+        currentValues.putByteArray("IMG", mCursor.getBlob(mCursor.getColumnIndex("IMG")));
 
         mCursor.close();
         return currentValues;
@@ -262,6 +267,7 @@ public class DBHelper {
         String su3 = charData.getString("SU3");
         String su4 = charData.getString("SU4");
         String su5 = charData.getString("SU5");
+        byte[] image = charData.getByteArray("IMG");
         int refresh = charData.getInt("REFRESH", -1);
         int fp = charData.getInt("FP", -1);
 
@@ -321,6 +327,7 @@ public class DBHelper {
             currentValues.put("MS2", mCursor.getInt(mCursor.getColumnIndex("MS2")) > 0);
             currentValues.put("MS3", mCursor.getInt(mCursor.getColumnIndex("MS3")) > 0);
             currentValues.put("MS4", mCursor.getInt(mCursor.getColumnIndex("MS4")) > 0);
+            currentValues.put("IMG", mCursor.getBlob(mCursor.getColumnIndex("IMG")));
 
             mCursor.close();
 
@@ -426,6 +433,9 @@ public class DBHelper {
             if(fp != -1){
                 currentValues.put("FP", fp);
             }
+            if(image.length > 3){
+                currentValues.put("IMG", image);
+            }
         }
         else{
             return;
@@ -493,6 +503,7 @@ public class DBHelper {
         currentValues.put("MS2", mCursor.getInt(mCursor.getColumnIndex("MS2")) > 0);
         currentValues.put("MS3", mCursor.getInt(mCursor.getColumnIndex("MS3")) > 0);
         currentValues.put("MS4", mCursor.getInt(mCursor.getColumnIndex("MS4")) > 0);
+        currentValues.put("IMG", mCursor.getBlob(mCursor.getColumnIndex("IMG")));
 
         mCursor.close();
 
@@ -559,6 +570,7 @@ public class DBHelper {
         currentValues.put("MS2", mCursor.getInt(mCursor.getColumnIndex("MS2")) > 0);
         currentValues.put("MS3", mCursor.getInt(mCursor.getColumnIndex("MS3")) > 0);
         currentValues.put("MS4", mCursor.getInt(mCursor.getColumnIndex("MS4")) > 0);
+        currentValues.put("IMG", mCursor.getBlob(mCursor.getColumnIndex("IMG")));
 
         mCursor.close();
 
@@ -633,6 +645,7 @@ public class DBHelper {
         currentValues.put("MS2", ms2);
         currentValues.put("MS3", ms3);
         currentValues.put("MS4", ms4);
+        currentValues.put("IMG", mCursor.getBlob(mCursor.getColumnIndex("IMG")));
 
         mCursor.close();
 
