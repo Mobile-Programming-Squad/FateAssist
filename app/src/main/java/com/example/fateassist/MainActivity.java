@@ -103,9 +103,10 @@ public class MainActivity extends AppCompatActivity {
                 @Override
                 public void onActivityResult(Uri uri) {
                     // Handle the returned Uri
+                    Uri selectedImage = uri;
                     Bitmap bitmap = null;
                     try {
-                        bitmap = MediaStore.Images.Media.getBitmap(getApplicationContext().getContentResolver(), uri);
+                        bitmap = MediaStore.Images.Media.getBitmap(getApplicationContext().getContentResolver(), selectedImage);
                         ImageView img = findViewById(R.id.sampleImageView);
 
                         byte[] imgBytes = DBHelper.getBytes(bitmap);
@@ -226,7 +227,7 @@ public class MainActivity extends AppCompatActivity {
         // IMPLEMENTED WITH URL INSTEAD OF DOCUMENT
         rulesButton.setOnClickListener(rulesListener);
 
-        SampleGetContent.launch("image/*");
+        //SampleGetContent.launch("image/*");
 
 
         }
