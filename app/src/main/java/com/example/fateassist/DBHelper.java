@@ -3,7 +3,11 @@ package com.example.fateassist;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
+
+import java.io.ByteArrayOutputStream;
 
 //class for managing the database through nicer commands
 //!TBDs
@@ -659,4 +663,14 @@ public class DBHelper {
     public void RemoveAllCharacters(Context context){
         context.getContentResolver().delete(MyContentProvider.CONTENT_URI, null, null);
     }
+
+    public static byte[] getBytes(Bitmap bitmap) {
+        ByteArrayOutputStream stream = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.PNG, 0, stream);
+        return stream.toByteArray();
+    }
+    public static Bitmap getImage(byte[] image) {
+        return BitmapFactory.decodeByteArray(image, 0, image.length);
+    }
+
 }
