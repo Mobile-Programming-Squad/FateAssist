@@ -1,6 +1,7 @@
 package com.example.fateassist;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.media.Image;
 import android.os.Bundle;
@@ -13,7 +14,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class AddCharacter extends AppCompatActivity {
-    String profile;
+    int profile;
     TextView profileLabel;
     ImageButton avatar;
     TextView nameLabel;
@@ -33,6 +34,7 @@ public class AddCharacter extends AppCompatActivity {
     Button cancelButton;
     Button nextButton;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,7 +43,7 @@ public class AddCharacter extends AppCompatActivity {
 
         // STILL NEED TO ENABLE THE PROFILE PICTURE TO BE UPLOADED AND TRANSFERRED TO THE
         // MAIN ACTIVITY TO UPDATE THE AVATAR
-        profile = intent.getStringExtra("profileName");
+        profile = intent.getIntExtra("profile", 1);
         profileLabel = (TextView) findViewById(R.id.profileLabel);
         avatar = (ImageButton) findViewById(R.id.avatarPictureButton);
         nameLabel = (TextView) findViewById(R.id.nameLabel);
@@ -60,8 +62,6 @@ public class AddCharacter extends AppCompatActivity {
         consequence1Field = (EditText) findViewById(R.id.consequence1Field);
         consequence2Field = (EditText) findViewById(R.id.consequence2Field);
         consequence3Field = (EditText) findViewById(R.id.consequence3Field);
-
-        profileLabel.setText(profile);
 
         cancelButton.setOnClickListener(cancelListener);
         nextButton.setOnClickListener(nextListener);
@@ -146,12 +146,32 @@ public class AddCharacter extends AppCompatActivity {
                 charData.putString("C2", C2);
                 charData.putString("C4", C4);
                 charData.putString("C6", C6);
+                switch(profile){
+                    case 1:
+                        charData.putInt("profile", 1);
+                        break;
+                    case 2:
+                        charData.putInt("profile", 2);
+                        break;
+                    case 3:
+                        charData.putInt("profile", 3);
+                        break;
+                    case 4:
+                        charData.putInt("profile", 4);
+                        break;
+                    case 5:
+                        charData.putInt("profile", 5);
+                        break;
+                    case 6:
+                        charData.putInt("profile", 6);
+                        break;
+                };
                 Intent intent = new Intent(AddCharacter.this, AddSkills.class);
                 intent.putExtra("addCharacterBundle", charData);
                 startActivity(intent);
 
             }
 
-        }
+        };
     };
 }
