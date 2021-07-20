@@ -325,11 +325,12 @@ public class MainActivity extends AppCompatActivity {
         }
     };
 
-    // NOT YET IMPLEMENTED
+    //IMPLEMENTED 7/20
     View.OnClickListener playListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-
+            Intent playIntent = new Intent(MainActivity.this, PlayActivity.class);
+            startActivity(playIntent);
         }
     };
 
