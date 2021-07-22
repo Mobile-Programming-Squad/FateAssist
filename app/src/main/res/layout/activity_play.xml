@@ -6,6 +6,48 @@
     android:layout_height="match_parent"
     tools:context=".PlayActivity">
 
+    <CheckBox
+        android:id="@+id/mentalStressBox2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="18dp"
+        android:text="2"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/mentalStressBox1"
+        app:layout_constraintTop_toBottomOf="@+id/mentalStressTextView" />
+
+    <CheckBox
+        android:id="@+id/mentalStressBox4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="59dp"
+        android:text="4"
+        app:layout_constraintStart_toEndOf="@+id/mentalStressBox3"
+        app:layout_constraintTop_toBottomOf="@+id/physicalStressBox3" />
+
+    <CheckBox
+        android:id="@+id/mentalStressBox3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="18dp"
+        android:text="3"
+        app:layout_constraintStart_toEndOf="@+id/mentalStressBox2"
+        app:layout_constraintTop_toBottomOf="@+id/mentalStressTextView" />
+
+    <CheckBox
+        android:id="@+id/mentalStressBox1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="122dp"
+        android:layout_marginTop="18dp"
+        android:text="1"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mentalStressTextView" />
+
     <Button
         android:id="@+id/backButton"
         android:layout_width="wrap_content"
@@ -44,4 +86,66 @@
         android:text="You rolled a: "
         app:layout_constraintStart_toEndOf="@+id/rollButton"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/physicalStressTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="122dp"
+        android:layout_marginTop="82dp"
+        android:text="Physical Stress (Physique)"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rollButton" />
+
+    <TextView
+        android:id="@+id/mentalStressTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="122dp"
+        android:layout_marginTop="22dp"
+        android:text="Mental Stress (Will)"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/physicalStressBox1" />
+
+    <CheckBox
+        android:id="@+id/physicalStressBox1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="122dp"
+        android:layout_marginTop="24dp"
+        android:text="1"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/physicalStressTextView" />
+
+    <CheckBox
+        android:id="@+id/physicalStressBox2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="24dp"
+        android:text="2"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/physicalStressBox1"
+        app:layout_constraintTop_toBottomOf="@+id/physicalStressTextView" />
+
+    <CheckBox
+        android:id="@+id/physicalStressBox3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="24dp"
+        android:text="3"
+        app:layout_constraintStart_toEndOf="@+id/physicalStressBox2"
+        app:layout_constraintTop_toBottomOf="@+id/physicalStressTextView" />
+
+    <CheckBox
+        android:id="@+id/physicalStressBox4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="24dp"
+        android:text="4"
+        app:layout_constraintStart_toEndOf="@+id/physicalStressBox3"
+        app:layout_constraintTop_toBottomOf="@+id/physicalStressTextView" />
 </androidx.constraintlayout.widget.ConstraintLayout>
