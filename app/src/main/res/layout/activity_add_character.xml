@@ -45,13 +45,14 @@
 
         <TextView
             android:id="@+id/profileLabel"
-            android:layout_width="153dp"
-            android:layout_height="48dp"
-            android:layout_marginStart="128dp"
+            android:layout_width="257dp"
+            android:layout_height="63dp"
+            android:layout_marginStart="76dp"
             android:layout_marginTop="16dp"
-            android:text="TextView"
+            android:text="Add Character Traits"
             android:textAlignment="center"
-            android:textSize="20sp"
+            android:textColor="#000000"
+            android:textSize="24sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 

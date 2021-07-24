@@ -2,16 +2,25 @@ package com.example.fateassist;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.media.Image;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
+
+import java.io.IOException;
 
 public class AddCharacter extends AppCompatActivity {
     int profile;
@@ -33,6 +42,27 @@ public class AddCharacter extends AppCompatActivity {
     EditText consequence3Field;
     Button cancelButton;
     Button nextButton;
+    
+    DBHelper helper;
+    Bundle charData;
+    Bitmap bitmap;
+    byte[] imgBytes = new byte[]{};
+    ActivityResultLauncher<String> GetImage = registerForActivityResult(new ActivityResultContracts.GetContent(),
+            new ActivityResultCallback<Uri>() {
+                @Override
+                public void onActivityResult(Uri uri) {
+                    // Handle the returned Uri
+                    bitmap = null;
+                    try {
+                        bitmap = MediaStore.Images.Media.getBitmap(getApplicationContext().getContentResolver(), uri);
+                        imgBytes = DBHelper.getBytes(bitmap);
+                    } catch (IOException e) {
+                        // TODO Auto-generated catch block
+                        e.printStackTrace();
+                    }
+                }
+            }
+    );
 
 
     @Override
@@ -40,7 +70,8 @@ public class AddCharacter extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_character);
         Intent intent = getIntent();
-
+        helper = new DBHelper();
+        charData = new Bundle();
         // STILL NEED TO ENABLE THE PROFILE PICTURE TO BE UPLOADED AND TRANSFERRED TO THE
         // MAIN ACTIVITY TO UPDATE THE AVATAR
         profile = intent.getIntExtra("profile", 1);
@@ -65,6 +96,23 @@ public class AddCharacter extends AppCompatActivity {
 
         cancelButton.setOnClickListener(cancelListener);
         nextButton.setOnClickListener(nextListener);
+        avatar.setOnClickListener(imageListener);
+        
+    }
+
+    @Override
+    protected void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+        charData = new Bundle();
+        charData = intent.getBundleExtra("charData");
+        nameField.setText(charData.getCharSequence("CHAR_NAME"));
+        descriptionField.setText(charData.getCharSequence("DESCRIPTION"));
+        aspectsField.setText(charData.getCharSequence("ASPECTS"));
+        stuntsField.setText(charData.getCharSequence("STUNTS"));
+        extrasField.setText(charData.getCharSequence("EXTRAS"));
+        consequence1Field.setText(charData.getCharSequence("C2"));
+        consequence2Field.setText(charData.getCharSequence("C4"));
+        consequence3Field.setText(charData.getCharSequence("C6"));
 
     }
 
@@ -91,12 +139,17 @@ public class AddCharacter extends AppCompatActivity {
             String C2 = consequence1Field.getText().toString();
             String C4 = consequence2Field.getText().toString();
             String C6 = consequence3Field.getText().toString();
-
+            boolean available = helper.ValidateCharacterName(getApplicationContext(), name);
 
             if (name.isEmpty()){
                 valid = false;
                 nameLabel.setTextColor(Color.RED);
                 Toast.makeText(AddCharacter.this, "Must include a character name", Toast.LENGTH_SHORT).show();
+            }
+            if (!available){
+                valid = false;
+                nameLabel.setTextColor(Color.RED);
+                Toast.makeText(AddCharacter.this, "Name is already in use", Toast.LENGTH_SHORT).show();
             }
             if (description.isEmpty()){
                 valid = false;
@@ -137,7 +190,7 @@ public class AddCharacter extends AppCompatActivity {
             if (valid){
                 // IF VALID, THE DATABASE VALUES GATHERED HERE WILL BE SENT TO THE ADDSKILLS CLASS
                 // AND THE REST OF THE DATABASE VALUES WILL BE OBTAINED THERE
-                Bundle charData = new Bundle();
+                charData = new Bundle();
                 charData.putString("CHAR_NAME", name);
                 charData.putString("DESCRIPTION", description);
                 charData.putString("ASPECTS", aspects);
@@ -146,32 +199,24 @@ public class AddCharacter extends AppCompatActivity {
                 charData.putString("C2", C2);
                 charData.putString("C4", C4);
                 charData.putString("C6", C6);
-                switch(profile){
-                    case 1:
-                        charData.putInt("profile", 1);
-                        break;
-                    case 2:
-                        charData.putInt("profile", 2);
-                        break;
-                    case 3:
-                        charData.putInt("profile", 3);
-                        break;
-                    case 4:
-                        charData.putInt("profile", 4);
-                        break;
-                    case 5:
-                        charData.putInt("profile", 5);
-                        break;
-                    case 6:
-                        charData.putInt("profile", 6);
-                        break;
-                };
                 Intent intent = new Intent(AddCharacter.this, AddSkills.class);
                 intent.putExtra("addCharacterBundle", charData);
+                intent.putExtra("profile", profile);
                 startActivity(intent);
 
             }
 
-        };
+        }
     };
+
+    View.OnClickListener imageListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            GetImage.launch("image/*");
+            DBHelper newHelper = new DBHelper();
+            avatar.setImageBitmap(bitmap);
+            charData.putByteArray("IMG", imgBytes);
+        }
+    };
+    
 }

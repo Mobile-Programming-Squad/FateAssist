@@ -27,7 +27,6 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 
 public class MainActivity extends AppCompatActivity {
-
     // buttons that you can click on to add a new character or view/change character profiles
     ImageButton character1Button;
     ImageButton character2Button;
@@ -62,16 +61,10 @@ public class MainActivity extends AppCompatActivity {
     static boolean character4 = false;
     static boolean character5 = false;
     static boolean character6 = false;
-    String profile = "";
 
     // shared preferences
-    SharedPreferences profile1;
-    SharedPreferences profile2;
-    SharedPreferences profile3;
-    SharedPreferences profile4;
-    SharedPreferences profile5;
-    SharedPreferences profile6;
-
+    public static final String PREFS_NAME = "profiles";
+    SharedPreferences profiles;
     //This may or may not be useful to you, just know that these should be the options
     //for each skill box
     public enum SkillTypes{
@@ -94,6 +87,7 @@ public class MainActivity extends AppCompatActivity {
         Stealth,
         Will,
     }
+
 
     //This gets called at the end of OnCreate with a parameter to pick images
     //When callback happens, it creates a sample character in the database with that image stored,
@@ -200,18 +194,13 @@ public class MainActivity extends AppCompatActivity {
         character5Label = (TextView) findViewById(R.id.character5Label);
         character6Label = (TextView) findViewById(R.id.character6Label);
 
-        profile1 = getSharedPreferences("profiles", 0);
-        profile2 = getSharedPreferences("profiles", 0);
-        profile3 = getSharedPreferences("profiles", 0);
-        profile4 = getSharedPreferences("profiles", 0);
-        profile5 = getSharedPreferences("profiles", 0);
-        profile6 = getSharedPreferences("profiles", 0);
-        character1 = profile1.getBoolean("profile1", false);
-        character2 = profile2.getBoolean("profile2", false);
-        character3 = profile3.getBoolean("profile3", false);
-        character4 = profile4.getBoolean("profile4", false);
-        character5 = profile5.getBoolean("profile5", false);
-        character6 = profile6.getBoolean("profile6", false);
+        profiles = getSharedPreferences(PREFS_NAME, 0);
+        character1 = profiles.getBoolean("profile1", false);
+        character2 = profiles.getBoolean("profile2", false);
+        character3 = profiles.getBoolean("profile3", false);
+        character4 = profiles.getBoolean("profile4", false);
+        character5 = profiles.getBoolean("profile5", false);
+        character6 = profiles.getBoolean("profile6", false);
 
 
         character1Button.setOnClickListener(imageListener);
@@ -237,12 +226,49 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
-        character1 = profile1.getBoolean("profile1", false);
-        character2 = profile2.getBoolean("profile2", false);
-        character3 = profile3.getBoolean("profile3", false);
-        character4 = profile4.getBoolean("profile4", false);
-        character5 = profile5.getBoolean("profile5", false);
-        character6 = profile6.getBoolean("profile6", false);
+        Bundle charData = intent.getBundleExtra("charData");
+        int profileNum = intent.getIntExtra("profile", 0);
+        
+        
+        profiles = getSharedPreferences(PREFS_NAME, 0);
+        character1 = profiles.getBoolean("profile1", false);
+        character2 = profiles.getBoolean("profile2", false);
+        character3 = profiles.getBoolean("profile3", false);
+        character4 = profiles.getBoolean("profile4", false);
+        character5 = profiles.getBoolean("profile5", false);
+        character6 = profiles.getBoolean("profile6", false);
+        
+        String name = charData.getString("CHAR_NAME");
+        byte[] newBytes = charData.getByteArray("IMG");
+        Bitmap newbitmap = DBHelper.getImage(newBytes);
+        switch (profileNum){
+            case 1:
+                character1Button.setImageBitmap(newbitmap);
+                character1Label.setText(name);
+                break;
+            case 2:
+                character2Button.setImageBitmap(newbitmap);
+                character2Label.setText(name);
+                break;
+            case 3:
+                character3Button.setImageBitmap(newbitmap);
+                character3Label.setText(name);
+                break;
+            case 4:
+                character4Button.setImageBitmap(newbitmap);
+                character4Label.setText(name);
+                break;
+            case 5:
+                character5Button.setImageBitmap(newbitmap);
+                character5Label.setText(name);
+                break;
+            case 6:
+                character6Button.setImageBitmap(newbitmap);
+                character6Label.setText(name);
+                break;
+        }
+        
+
     }
 
     View.OnClickListener imageListener = new View.OnClickListener() {
@@ -344,4 +370,19 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
         }
     };
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        profiles = getSharedPreferences(PREFS_NAME, 0);
+        SharedPreferences.Editor editor = profiles.edit();
+        editor.putBoolean("profile1", character1);
+        editor.putBoolean("profile2", character2);
+        editor.putBoolean("profile3", character3);
+        editor.putBoolean("profile4", character4);
+        editor.putBoolean("profile5", character5);
+        editor.putBoolean("profile6", character6);
+        editor.commit();
+
+    }
 }

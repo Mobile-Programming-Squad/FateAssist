@@ -6,5 +6,26 @@
     <string name="profile4_label">Profile 4</string>
     <string name="profile5_label">Profile 5</string>
     <string name="profile6_label">Profile 6</string>
+    <string-array name="skills">
+        <item>Select Skills</item>
+        <item>Athletics</item>
+        <item>Burglary</item>
+        <item>Contacts</item>
+        <item>Crafts</item>
+        <item>Deceive</item>
+        <item>Drive</item>
+        <item>Empathy</item>
+        <item>Fight</item>
+        <item>Investigate</item>
+        <item>Lore</item>
+        <item>Notice</item>
+        <item>Physique</item>
+        <item>Provoke</item>
+        <item>Rapport</item>
+        <item>Resources</item>
+        <item>Shoot</item>
+        <item>Stealth</item>
+        <item>Will</item>
+    </string-array>
 
 </resources>
