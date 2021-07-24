@@ -229,9 +229,7 @@ public class MainActivity extends AppCompatActivity {
 
         //SampleGetContent.launch("image/*");
 
-        //uncomment these lines to add some sample data
-        //DBHelper myHelper = new DBHelper();
-        //myHelper.AddTestCharacters(getApplicationContext());
+
         }
 
 
