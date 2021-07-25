@@ -18,6 +18,7 @@
             android:layout_marginTop="11dp"
             android:textAlignment="center"
             android:background="@drawable/textbox"
+            android:textColor="#000000"
             app:layout_constraintStart_toEndOf="@+id/good4"
             app:layout_constraintTop_toBottomOf="@+id/good3" />
 
@@ -29,6 +30,7 @@
             android:layout_marginTop="11dp"
             android:textAlignment="center"
             android:background="@drawable/textbox"
+            android:textColor="#000000"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/superb1" />
 
@@ -39,6 +41,7 @@
             android:layout_marginTop="11dp"
             android:textAlignment="center"
             android:background="@drawable/textbox"
+            android:textColor="#000000"
             app:layout_constraintStart_toEndOf="@+id/superb4"
             app:layout_constraintTop_toBottomOf="@+id/superb2" />
 
@@ -62,6 +65,7 @@
             android:layout_height="53dp"
             android:layout_marginStart="100dp"
             android:layout_marginTop="20dp"
+            android:background="@android:drawable/btn_dropdown"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/superbLabel" />
 
@@ -71,6 +75,7 @@
             android:layout_height="53dp"
             android:layout_marginStart="92dp"
             android:layout_marginTop="20dp"
+            android:background="@android:drawable/btn_dropdown"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/greatLabel" />
 
@@ -80,6 +85,7 @@
             android:layout_height="53dp"
             android:layout_marginStart="92dp"
             android:layout_marginTop="20dp"
+            android:background="@android:drawable/btn_dropdown"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/goodLabel" />
 
@@ -89,6 +95,7 @@
             android:layout_height="53dp"
             android:layout_marginStart="92dp"
             android:layout_marginTop="20dp"
+            android:background="@android:drawable/btn_dropdown"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/fairLabel" />
 
@@ -98,6 +105,7 @@
             android:layout_height="53dp"
             android:layout_marginStart="92dp"
             android:layout_marginTop="20dp"
+            android:background="@android:drawable/btn_dropdown"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/avgLabel" />
 
@@ -109,6 +117,7 @@
             android:layout_marginTop="16dp"
             android:textAlignment="center"
             android:background="@drawable/textbox"
+            android:textColor="#000000"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/superbSpinner" />
 
@@ -120,6 +129,7 @@
             android:layout_marginTop="16dp"
             android:textAlignment="center"
             android:background="@drawable/textbox"
+            android:textColor="#000000"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/greatSpinner" />
 
@@ -131,6 +141,7 @@
             android:layout_marginTop="16dp"
             android:textAlignment="center"
             android:background="@drawable/textbox"
+            android:textColor="#000000"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/goodSpinner" />
 
@@ -142,6 +153,7 @@
             android:layout_marginTop="16dp"
             android:textAlignment="center"
             android:background="@drawable/textbox"
+            android:textColor="#000000"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/fairSpinner" />
 
@@ -153,6 +165,7 @@
             android:layout_marginTop="16dp"
             android:textAlignment="center"
             android:background="@drawable/textbox"
+            android:textColor="#000000"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/avgSpinner" />
 
@@ -163,6 +176,7 @@
             android:layout_marginTop="11dp"
             android:textAlignment="center"
             android:background="@drawable/textbox"
+            android:textColor="#000000"
             app:layout_constraintStart_toEndOf="@+id/avg4"
             app:layout_constraintTop_toBottomOf="@+id/avg2" />
 
@@ -174,6 +188,7 @@
             android:layout_marginTop="11dp"
             android:textAlignment="center"
             android:background="@drawable/textbox"
+            android:textColor="#000000"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/avg1" />
 
@@ -184,6 +199,7 @@
             android:layout_marginTop="16dp"
             android:textAlignment="center"
             android:background="@drawable/textbox"
+            android:textColor="#000000"
             app:layout_constraintStart_toEndOf="@+id/avg1"
             app:layout_constraintTop_toBottomOf="@+id/avgSpinner" />
 
@@ -194,6 +210,7 @@
             android:layout_marginTop="16dp"
             android:textAlignment="center"
             android:background="@drawable/textbox"
+            android:textColor="#000000"
             app:layout_constraintStart_toEndOf="@+id/avg2"
             app:layout_constraintTop_toBottomOf="@+id/avgSpinner" />
 
@@ -204,6 +221,7 @@
             android:layout_marginTop="11dp"
             android:textAlignment="center"
             android:background="@drawable/textbox"
+            android:textColor="#000000"
             app:layout_constraintStart_toEndOf="@+id/fair4"
             app:layout_constraintTop_toBottomOf="@+id/fair2" />
 
@@ -215,6 +233,7 @@
             android:layout_marginTop="11dp"
             android:textAlignment="center"
             android:background="@drawable/textbox"
+            android:textColor="#000000"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/fair1" />
 
@@ -225,6 +244,7 @@
             android:layout_marginTop="16dp"
             android:textAlignment="center"
             android:background="@drawable/textbox"
+            android:textColor="#000000"
             app:layout_constraintStart_toEndOf="@+id/fair1"
             app:layout_constraintTop_toBottomOf="@+id/fairSpinner" />
 
@@ -235,6 +255,7 @@
             android:layout_marginTop="16dp"
             android:textAlignment="center"
             android:background="@drawable/textbox"
+            android:textColor="#000000"
             app:layout_constraintStart_toEndOf="@+id/fair2"
             app:layout_constraintTop_toBottomOf="@+id/fairSpinner" />
 
@@ -246,6 +267,7 @@
             android:layout_marginTop="11dp"
             android:textAlignment="center"
             android:background="@drawable/textbox"
+            android:textColor="#000000"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/good1" />
 
@@ -256,6 +278,7 @@
             android:layout_marginTop="16dp"
             android:textAlignment="center"
             android:background="@drawable/textbox"
+            android:textColor="#000000"
             app:layout_constraintStart_toEndOf="@+id/good2"
             app:layout_constraintTop_toBottomOf="@+id/goodSpinner" />
 
@@ -266,6 +289,7 @@
             android:layout_marginTop="16dp"
             android:textAlignment="center"
             android:background="@drawable/textbox"
+            android:textColor="#000000"
             app:layout_constraintStart_toEndOf="@+id/good1"
             app:layout_constraintTop_toBottomOf="@+id/goodSpinner" />
 
@@ -276,6 +300,7 @@
             android:layout_marginTop="11dp"
             android:textAlignment="center"
             android:background="@drawable/textbox"
+            android:textColor="#000000"
             app:layout_constraintStart_toEndOf="@+id/great4"
             app:layout_constraintTop_toBottomOf="@+id/great2" />
 
@@ -286,6 +311,7 @@
             android:layout_marginTop="16dp"
             android:textAlignment="center"
             android:background="@drawable/textbox"
+            android:textColor="#000000"
             app:layout_constraintStart_toEndOf="@+id/great1"
             app:layout_constraintTop_toBottomOf="@+id/greatSpinner" />
 
@@ -296,6 +322,7 @@
             android:layout_marginTop="16dp"
             android:textAlignment="center"
             android:background="@drawable/textbox"
+            android:textColor="#000000"
             app:layout_constraintStart_toEndOf="@+id/great2"
             app:layout_constraintTop_toBottomOf="@+id/greatSpinner" />
 
@@ -307,6 +334,7 @@
             android:layout_marginTop="11dp"
             android:textAlignment="center"
             android:background="@drawable/textbox"
+            android:textColor="#000000"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/great1" />
 
@@ -317,6 +345,7 @@
             android:layout_marginTop="16dp"
             android:textAlignment="center"
             android:background="@drawable/textbox"
+            android:textColor="#000000"
             app:layout_constraintStart_toEndOf="@+id/superb1"
             app:layout_constraintTop_toBottomOf="@+id/superbSpinner" />
 
@@ -327,6 +356,7 @@
             android:layout_marginTop="16dp"
             android:textAlignment="center"
             android:background="@drawable/textbox"
+            android:textColor="#000000"
             app:layout_constraintStart_toEndOf="@+id/superb2"
             app:layout_constraintTop_toBottomOf="@+id/superbSpinner" />
 
@@ -335,7 +365,7 @@
             android:layout_width="95dp"
             android:layout_height="32dp"
             android:layout_marginStart="158dp"
-            android:layout_marginTop="34dp"
+            android:layout_marginTop="50dp"
             android:text="Superb Skills"
             android:textAlignment="center"
             android:textColor="#000000"
@@ -347,7 +377,7 @@
             android:layout_width="95dp"
             android:layout_height="32dp"
             android:layout_marginStart="156dp"
-            android:layout_marginTop="34dp"
+            android:layout_marginTop="75dp"
             android:text="Great Skills"
             android:textAlignment="center"
             android:textColor="#000000"
@@ -359,7 +389,7 @@
             android:layout_width="95dp"
             android:layout_height="32dp"
             android:layout_marginStart="156dp"
-            android:layout_marginTop="34dp"
+            android:layout_marginTop="75dp"
             android:text="Good Skills"
             android:textAlignment="center"
             android:textColor="#000000"
@@ -371,7 +401,7 @@
             android:layout_width="95dp"
             android:layout_height="32dp"
             android:layout_marginStart="158dp"
-            android:layout_marginTop="34dp"
+            android:layout_marginTop="75dp"
             android:text="Fair Skills"
             android:textAlignment="center"
             android:textColor="#000000"
@@ -383,7 +413,7 @@
             android:layout_width="95dp"
             android:layout_height="32dp"
             android:layout_marginStart="156dp"
-            android:layout_marginTop="34dp"
+            android:layout_marginTop="75dp"
             android:text="Average Skills"
             android:textAlignment="center"
             android:textColor="#000000"

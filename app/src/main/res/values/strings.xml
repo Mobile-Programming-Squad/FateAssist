@@ -7,7 +7,6 @@
     <string name="profile5_label">Profile 5</string>
     <string name="profile6_label">Profile 6</string>
     <string-array name="skills">
-        <item>Select Skills</item>
         <item>Athletics</item>
         <item>Burglary</item>
         <item>Contacts</item>

@@ -138,6 +138,12 @@ public class AddSkills extends AppCompatActivity {
         goodSpinner.setAdapter(spinAdapter);
         fairSpinner.setAdapter(spinAdapter);
         avgSpinner.setAdapter(spinAdapter);
+        superbSpinner.setPrompt("Select Skill");
+        greatSpinner.setPrompt("Select Skill");
+        goodSpinner.setPrompt("Select Skill");
+        fairSpinner.setPrompt("Select Skill");
+        avgSpinner.setPrompt("Select Skill");
+
 
         superbSpinner.setOnItemSelectedListener(superbListener);
         greatSpinner.setOnItemSelectedListener(greatListener);
@@ -151,7 +157,6 @@ public class AddSkills extends AppCompatActivity {
         @Override
         public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
             String item = parent.getItemAtPosition(position).toString();
-            if (position != 0) {
                 switch (superbText) {
                     case 1:
                         charData.putString("su1", item);
@@ -179,8 +184,7 @@ public class AddSkills extends AppCompatActivity {
                         superbText = 1;
                         break;
                 }
-            }
-
+            superbSpinner.setPrompt("Select Skill");
         }
         @Override
         public void onNothingSelected(AdapterView<?> parent) {
@@ -192,7 +196,6 @@ public class AddSkills extends AppCompatActivity {
         @Override
         public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
             String item = parent.getItemAtPosition(position).toString();
-            if (position != 0) {
                 switch (greatText) {
                     case 1:
                         charData.putString("gr1", item);
@@ -220,7 +223,7 @@ public class AddSkills extends AppCompatActivity {
                         greatText = 1;
                         break;
                 }
-            }
+            greatSpinner.setPrompt("Select Skill");
         }
 
         @Override
@@ -233,7 +236,6 @@ public class AddSkills extends AppCompatActivity {
         @Override
         public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
             String item = parent.getItemAtPosition(position).toString();
-            if (position != 0) {
                 switch (goodText) {
                     case 1:
                         charData.putString("go1", item);
@@ -261,7 +263,7 @@ public class AddSkills extends AppCompatActivity {
                         goodText = 1;
                         break;
                 }
-            }
+            goodSpinner.setPrompt("Select Skill");
         }
 
         @Override
@@ -274,7 +276,6 @@ public class AddSkills extends AppCompatActivity {
         @Override
         public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
             String item = parent.getItemAtPosition(position).toString();
-            if (position != 0) {
                 switch (fairText) {
                     case 1:
                         charData.putString("fa1", item);
@@ -302,7 +303,7 @@ public class AddSkills extends AppCompatActivity {
                         fairText = 1;
                         break;
                 }
-            }
+            fairSpinner.setPrompt("Select Skill");
         }
 
         @Override
@@ -315,7 +316,6 @@ public class AddSkills extends AppCompatActivity {
         @Override
         public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
             String item = parent.getItemAtPosition(position).toString();
-            if (position != 0) {
                 switch (avgText) {
                     case 1:
                         charData.putString("av1", item);
@@ -343,7 +343,8 @@ public class AddSkills extends AppCompatActivity {
                         avgText = 1;
                         break;
                 }
-            }
+            avgSpinner.setPrompt("Select Skill");
+
         }
 
         @Override
