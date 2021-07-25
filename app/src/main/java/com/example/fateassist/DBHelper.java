@@ -437,7 +437,7 @@ public class DBHelper {
             if(fp != -1){
                 currentValues.put("FP", fp);
             }
-            if(image.length > 3){
+            if(image != null){
                 currentValues.put("IMG", image);
             }
         }
