@@ -45,17 +45,18 @@ public class AddCharacter extends AppCompatActivity {
     
     DBHelper helper;
     Bundle charData;
-    Bitmap bitmap;
+    Bitmap bitmap = null;
     byte[] imgBytes = new byte[]{};
     ActivityResultLauncher<String> GetImage = registerForActivityResult(new ActivityResultContracts.GetContent(),
             new ActivityResultCallback<Uri>() {
                 @Override
                 public void onActivityResult(Uri uri) {
                     // Handle the returned Uri
-                    bitmap = null;
                     try {
                         bitmap = MediaStore.Images.Media.getBitmap(getApplicationContext().getContentResolver(), uri);
                         imgBytes = DBHelper.getBytes(bitmap);
+                        avatar.setImageBitmap(bitmap);
+                        charData.putByteArray("IMG", imgBytes);
                     } catch (IOException e) {
                         // TODO Auto-generated catch block
                         e.printStackTrace();
@@ -190,7 +191,6 @@ public class AddCharacter extends AppCompatActivity {
             if (valid){
                 // IF VALID, THE DATABASE VALUES GATHERED HERE WILL BE SENT TO THE ADDSKILLS CLASS
                 // AND THE REST OF THE DATABASE VALUES WILL BE OBTAINED THERE
-                charData = new Bundle();
                 charData.putString("CHAR_NAME", name);
                 charData.putString("DESCRIPTION", description);
                 charData.putString("ASPECTS", aspects);
@@ -213,9 +213,7 @@ public class AddCharacter extends AppCompatActivity {
         @Override
         public void onClick(View v) {
             GetImage.launch("image/*");
-            DBHelper newHelper = new DBHelper();
-            avatar.setImageBitmap(bitmap);
-            charData.putByteArray("IMG", imgBytes);
+
         }
     };
     

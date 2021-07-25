@@ -31,7 +31,9 @@
             android:layout_marginTop="14dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/profileLabel"
-            app:srcCompat="@android:drawable/ic_menu_add" />
+            app:srcCompat="@android:drawable/ic_menu_add"
+            android:scaleType="fitCenter"
+            android:adjustViewBounds="true"/>
 
         <TextView
             android:id="@+id/avatarLabel"

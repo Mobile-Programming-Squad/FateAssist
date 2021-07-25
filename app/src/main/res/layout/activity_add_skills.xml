@@ -12,6 +12,37 @@
         android:layout_height="match_parent">
 
         <TextView
+            android:id="@+id/good5"
+            android:layout_width="126dp"
+            android:layout_height="39dp"
+            android:layout_marginTop="11dp"
+            android:textAlignment="center"
+            android:background="@drawable/textbox"
+            app:layout_constraintStart_toEndOf="@+id/good4"
+            app:layout_constraintTop_toBottomOf="@+id/good3" />
+
+        <TextView
+            android:id="@+id/superb4"
+            android:layout_width="126dp"
+            android:layout_height="39dp"
+            android:layout_marginStart="75dp"
+            android:layout_marginTop="11dp"
+            android:textAlignment="center"
+            android:background="@drawable/textbox"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/superb1" />
+
+        <TextView
+            android:id="@+id/superb5"
+            android:layout_width="126dp"
+            android:layout_height="39dp"
+            android:layout_marginTop="11dp"
+            android:textAlignment="center"
+            android:background="@drawable/textbox"
+            app:layout_constraintStart_toEndOf="@+id/superb4"
+            app:layout_constraintTop_toBottomOf="@+id/superb2" />
+
+        <TextView
             android:id="@+id/addSkillsLabel"
             android:layout_width="261dp"
             android:layout_height="60dp"
@@ -26,43 +57,358 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <Spinner
-            android:id="@+id/spinner"
+            android:id="@+id/superbSpinner"
+            android:layout_width="227dp"
+            android:layout_height="53dp"
+            android:layout_marginStart="100dp"
+            android:layout_marginTop="20dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/superbLabel" />
+
+        <Spinner
+            android:id="@+id/greatSpinner"
             android:layout_width="227dp"
             android:layout_height="53dp"
             android:layout_marginStart="92dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="20dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/greatLabel" />
+
+        <Spinner
+            android:id="@+id/goodSpinner"
+            android:layout_width="227dp"
+            android:layout_height="53dp"
+            android:layout_marginStart="92dp"
+            android:layout_marginTop="20dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/goodLabel" />
+
+        <Spinner
+            android:id="@+id/fairSpinner"
+            android:layout_width="227dp"
+            android:layout_height="53dp"
+            android:layout_marginStart="92dp"
+            android:layout_marginTop="20dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/fairLabel" />
+
+        <Spinner
+            android:id="@+id/avgSpinner"
+            android:layout_width="227dp"
+            android:layout_height="53dp"
+            android:layout_marginStart="92dp"
+            android:layout_marginTop="20dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/avgLabel" />
+
+        <TextView
+            android:id="@+id/superb1"
+            android:layout_width="126dp"
+            android:layout_height="39dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:textAlignment="center"
+            android:background="@drawable/textbox"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/superbSpinner" />
+
+        <TextView
+            android:id="@+id/great1"
+            android:layout_width="126dp"
+            android:layout_height="39dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:textAlignment="center"
+            android:background="@drawable/textbox"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/greatSpinner" />
+
+        <TextView
+            android:id="@+id/good1"
+            android:layout_width="126dp"
+            android:layout_height="39dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:textAlignment="center"
+            android:background="@drawable/textbox"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/goodSpinner" />
+
+        <TextView
+            android:id="@+id/fair1"
+            android:layout_width="126dp"
+            android:layout_height="39dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:textAlignment="center"
+            android:background="@drawable/textbox"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/fairSpinner" />
+
+        <TextView
+            android:id="@+id/avg1"
+            android:layout_width="126dp"
+            android:layout_height="39dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:textAlignment="center"
+            android:background="@drawable/textbox"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/avgSpinner" />
+
+        <TextView
+            android:id="@+id/avg5"
+            android:layout_width="126dp"
+            android:layout_height="39dp"
+            android:layout_marginTop="11dp"
+            android:textAlignment="center"
+            android:background="@drawable/textbox"
+            app:layout_constraintStart_toEndOf="@+id/avg4"
+            app:layout_constraintTop_toBottomOf="@+id/avg2" />
+
+        <TextView
+            android:id="@+id/avg4"
+            android:layout_width="126dp"
+            android:layout_height="39dp"
+            android:layout_marginStart="75dp"
+            android:layout_marginTop="11dp"
+            android:textAlignment="center"
+            android:background="@drawable/textbox"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/avg1" />
+
+        <TextView
+            android:id="@+id/avg2"
+            android:layout_width="126dp"
+            android:layout_height="39dp"
+            android:layout_marginTop="16dp"
+            android:textAlignment="center"
+            android:background="@drawable/textbox"
+            app:layout_constraintStart_toEndOf="@+id/avg1"
+            app:layout_constraintTop_toBottomOf="@+id/avgSpinner" />
+
+        <TextView
+            android:id="@+id/avg3"
+            android:layout_width="126dp"
+            android:layout_height="39dp"
+            android:layout_marginTop="16dp"
+            android:textAlignment="center"
+            android:background="@drawable/textbox"
+            app:layout_constraintStart_toEndOf="@+id/avg2"
+            app:layout_constraintTop_toBottomOf="@+id/avgSpinner" />
+
+        <TextView
+            android:id="@+id/fair5"
+            android:layout_width="126dp"
+            android:layout_height="39dp"
+            android:layout_marginTop="11dp"
+            android:textAlignment="center"
+            android:background="@drawable/textbox"
+            app:layout_constraintStart_toEndOf="@+id/fair4"
+            app:layout_constraintTop_toBottomOf="@+id/fair2" />
+
+        <TextView
+            android:id="@+id/fair4"
+            android:layout_width="126dp"
+            android:layout_height="39dp"
+            android:layout_marginStart="75dp"
+            android:layout_marginTop="11dp"
+            android:textAlignment="center"
+            android:background="@drawable/textbox"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/fair1" />
+
+        <TextView
+            android:id="@+id/fair2"
+            android:layout_width="126dp"
+            android:layout_height="39dp"
+            android:layout_marginTop="16dp"
+            android:textAlignment="center"
+            android:background="@drawable/textbox"
+            app:layout_constraintStart_toEndOf="@+id/fair1"
+            app:layout_constraintTop_toBottomOf="@+id/fairSpinner" />
+
+        <TextView
+            android:id="@+id/fair3"
+            android:layout_width="126dp"
+            android:layout_height="39dp"
+            android:layout_marginTop="16dp"
+            android:textAlignment="center"
+            android:background="@drawable/textbox"
+            app:layout_constraintStart_toEndOf="@+id/fair2"
+            app:layout_constraintTop_toBottomOf="@+id/fairSpinner" />
+
+        <TextView
+            android:id="@+id/good4"
+            android:layout_width="126dp"
+            android:layout_height="39dp"
+            android:layout_marginStart="75dp"
+            android:layout_marginTop="11dp"
+            android:textAlignment="center"
+            android:background="@drawable/textbox"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/good1" />
+
+        <TextView
+            android:id="@+id/good3"
+            android:layout_width="126dp"
+            android:layout_height="39dp"
+            android:layout_marginTop="16dp"
+            android:textAlignment="center"
+            android:background="@drawable/textbox"
+            app:layout_constraintStart_toEndOf="@+id/good2"
+            app:layout_constraintTop_toBottomOf="@+id/goodSpinner" />
+
+        <TextView
+            android:id="@+id/good2"
+            android:layout_width="126dp"
+            android:layout_height="39dp"
+            android:layout_marginTop="16dp"
+            android:textAlignment="center"
+            android:background="@drawable/textbox"
+            app:layout_constraintStart_toEndOf="@+id/good1"
+            app:layout_constraintTop_toBottomOf="@+id/goodSpinner" />
+
+        <TextView
+            android:id="@+id/great5"
+            android:layout_width="126dp"
+            android:layout_height="39dp"
+            android:layout_marginTop="11dp"
+            android:textAlignment="center"
+            android:background="@drawable/textbox"
+            app:layout_constraintStart_toEndOf="@+id/great4"
+            app:layout_constraintTop_toBottomOf="@+id/great2" />
+
+        <TextView
+            android:id="@+id/great2"
+            android:layout_width="126dp"
+            android:layout_height="39dp"
+            android:layout_marginTop="16dp"
+            android:textAlignment="center"
+            android:background="@drawable/textbox"
+            app:layout_constraintStart_toEndOf="@+id/great1"
+            app:layout_constraintTop_toBottomOf="@+id/greatSpinner" />
+
+        <TextView
+            android:id="@+id/great3"
+            android:layout_width="126dp"
+            android:layout_height="39dp"
+            android:layout_marginTop="16dp"
+            android:textAlignment="center"
+            android:background="@drawable/textbox"
+            app:layout_constraintStart_toEndOf="@+id/great2"
+            app:layout_constraintTop_toBottomOf="@+id/greatSpinner" />
+
+        <TextView
+            android:id="@+id/great4"
+            android:layout_width="126dp"
+            android:layout_height="39dp"
+            android:layout_marginStart="75dp"
+            android:layout_marginTop="11dp"
+            android:textAlignment="center"
+            android:background="@drawable/textbox"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/great1" />
+
+        <TextView
+            android:id="@+id/superb2"
+            android:layout_width="126dp"
+            android:layout_height="39dp"
+            android:layout_marginTop="16dp"
+            android:textAlignment="center"
+            android:background="@drawable/textbox"
+            app:layout_constraintStart_toEndOf="@+id/superb1"
+            app:layout_constraintTop_toBottomOf="@+id/superbSpinner" />
+
+        <TextView
+            android:id="@+id/superb3"
+            android:layout_width="126dp"
+            android:layout_height="39dp"
+            android:layout_marginTop="16dp"
+            android:textAlignment="center"
+            android:background="@drawable/textbox"
+            app:layout_constraintStart_toEndOf="@+id/superb2"
+            app:layout_constraintTop_toBottomOf="@+id/superbSpinner" />
+
+        <TextView
+            android:id="@+id/superbLabel"
+            android:layout_width="95dp"
+            android:layout_height="32dp"
+            android:layout_marginStart="158dp"
+            android:layout_marginTop="34dp"
+            android:text="Superb Skills"
+            android:textAlignment="center"
+            android:textColor="#000000"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/addSkillsLabel" />
 
-        <ListView
-            android:id="@+id/skillList"
-            android:layout_width="412dp"
-            android:layout_height="453dp"
-            android:layout_marginTop="12dp"
+        <TextView
+            android:id="@+id/greatLabel"
+            android:layout_width="95dp"
+            android:layout_height="32dp"
+            android:layout_marginStart="156dp"
+            android:layout_marginTop="34dp"
+            android:text="Great Skills"
+            android:textAlignment="center"
+            android:textColor="#000000"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/spinner">
+            app:layout_constraintTop_toBottomOf="@+id/superb4" />
 
-        </ListView>
+        <TextView
+            android:id="@+id/goodLabel"
+            android:layout_width="95dp"
+            android:layout_height="32dp"
+            android:layout_marginStart="156dp"
+            android:layout_marginTop="34dp"
+            android:text="Good Skills"
+            android:textAlignment="center"
+            android:textColor="#000000"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/great5" />
+
+        <TextView
+            android:id="@+id/fairLabel"
+            android:layout_width="95dp"
+            android:layout_height="32dp"
+            android:layout_marginStart="158dp"
+            android:layout_marginTop="34dp"
+            android:text="Fair Skills"
+            android:textAlignment="center"
+            android:textColor="#000000"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/good5" />
+
+        <TextView
+            android:id="@+id/avgLabel"
+            android:layout_width="95dp"
+            android:layout_height="32dp"
+            android:layout_marginStart="156dp"
+            android:layout_marginTop="34dp"
+            android:text="Average Skills"
+            android:textAlignment="center"
+            android:textColor="#000000"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/fair5" />
 
         <Button
             android:id="@+id/backbutton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="75dp"
-            android:layout_marginTop="28dp"
+            android:layout_marginStart="52dp"
+            android:layout_marginTop="36dp"
             android:text="Back"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/skillList" />
+            app:layout_constraintTop_toBottomOf="@+id/avg4" />
 
         <Button
             android:id="@+id/confirmButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="79dp"
-            android:layout_marginTop="28dp"
+            android:layout_marginStart="109dp"
+            android:layout_marginTop="40dp"
             android:text="Confirm"
             app:layout_constraintStart_toEndOf="@+id/backbutton"
-            app:layout_constraintTop_toBottomOf="@+id/skillList" />
+            app:layout_constraintTop_toBottomOf="@+id/avg5" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
