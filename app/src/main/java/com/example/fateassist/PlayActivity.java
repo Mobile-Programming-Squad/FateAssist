@@ -19,7 +19,6 @@ public class PlayActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_play);
 
-        Button backButton = findViewById(R.id.backButton);//might not use since android already has one built in
         Button rollButton = (Button) findViewById(R.id.rollButton);
         Spinner diceSpinner = findViewById(R.id.diceSpinner);
         TextView rolledTextView = findViewById(R.id.rolledTextView);
@@ -31,6 +30,62 @@ public class PlayActivity extends AppCompatActivity {
         CheckBox msBox2 = findViewById(R.id.mentalStressBox2);
         CheckBox msBox3 = findViewById(R.id.mentalStressBox3);
         CheckBox msBox4 = findViewById(R.id.mentalStressBox4);
+
+        TextView nameTextView = findViewById(R.id.nameTextView);
+        TextView descriptionTextView = findViewById(R.id.descriptionTextView);
+        TextView aspectsTextView = findViewById(R.id.aaspectsTextView);
+        TextView stuntsTextView = findViewById(R.id.stuntsTextView);
+        TextView extraTextView = findViewById(R.id.extrasTextView);
+        TextView c1TextView = findViewById(R.id.c1TextView);
+        TextView c2TextView = findViewById(R.id.c2TextView);
+        TextView c3TextView = findViewById(R.id.c3TextView);
+
+        DBHelper dbHelper = new DBHelper();
+
+
+        //get intent from MainActivity
+        Bundle bundle = getIntent().getExtras();
+        Integer  profileChoice;
+        if (bundle != null) {
+            profileChoice = bundle.getInt("profile");
+            nameTextView.setText("Profile choice: " + profileChoice);
+        }
+
+        //pass in the name of the profile here
+        String name = "CHAR_NAME";
+        Bundle currentValues = DBHelper.GetCharacter(getApplicationContext(), name);
+
+        //name
+        String temp = currentValues.getString("CHAR_NAME");
+        nameTextView.setText("Name: " + temp);
+
+        //description
+        temp = currentValues.getString("DESCRIPTION");
+        descriptionTextView.setText("Description: " + temp);
+
+        //Aspects
+        temp = currentValues.getString("ASPECTS");
+        aspectsTextView.setText("Aspects: " + temp);
+
+        //stunts
+        temp = currentValues.getString("STUNTS");
+        stuntsTextView.setText("Stunts: " + temp);
+
+        //Extras
+        temp = currentValues.getString("EXTRAS");
+        extraTextView.setText("Extras: " + temp);
+
+        //Consequence 1
+        temp = currentValues.getString("C2");
+        c1TextView.setText("Consequence 1: " + temp);
+
+        //Consequence 2
+        temp = currentValues.getString("C4");
+        c2TextView.setText("Consequence 2: " + temp);
+
+        //Consequence 3
+        temp = currentValues.getString("C6");
+        c3TextView.setText("Consequence 3: " + temp);
 
 
         Integer[] diceArray = {20, 12, 10, 8, 6, 4};

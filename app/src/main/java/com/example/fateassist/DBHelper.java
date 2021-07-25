@@ -174,7 +174,7 @@ public class DBHelper {
         return !matches;
     }
 
-    public Bundle GetCharacter(Context context, String charName){
+    public static Bundle GetCharacter(Context context, String charName){
         Bundle currentValues = new Bundle();
 
         Cursor mCursor = context.getContentResolver().query(
