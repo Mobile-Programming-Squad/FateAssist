@@ -11,7 +11,10 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,9 +40,7 @@ public class UpdateSkills extends AppCompatActivity {
         setContentView(R.layout.activity_update_skills);
         Intent intent = getIntent();
         charData = intent.getBundleExtra("addCharacterBundle");
-        profileNum = intent.getIntExtra("profile", 1);
-
-        //populating data
+        profileNum = intent.getIntExtra("profile", 1); // change to name
 
 
         helper = new DBHelper();
@@ -69,6 +70,109 @@ public class UpdateSkills extends AppCompatActivity {
         bundleNames.add("su4");
         bundleNames.add("su5");
 
+
+        //populating values from database into list
+        List<String> skillsInDatabase = new ArrayList<>();
+        //get intent from MainActivity
+        Bundle bundle = getIntent().getExtras();
+        Integer  profileChoice;
+        if (bundle != null) {
+            profileChoice = bundle.getInt("profile"); //pass in name instead
+            // nameTextView.setText("Profile choice: " + profileChoice);
+        }
+
+        //pass in the name of the profile here
+        String name = "CHAR_NAME";
+        Bundle currentValues = DBHelper.GetCharacter(getApplicationContext(), name);
+
+       // TextView usTV = findViewById(R.id.updateSkillsTextView);
+        //AV1
+        String temp = currentValues.getString("AV1");
+        if(temp!=null)
+        skillsInDatabase.add(temp);
+        //AV2
+        temp = currentValues.getString("AV2");
+        skillsInDatabase.add(temp);
+        //AV3
+        temp = currentValues.getString("AV3");
+        skillsInDatabase.add(temp);
+        //AV4
+        temp = currentValues.getString("AV4");
+        skillsInDatabase.add(temp);
+        //AV5
+        temp = currentValues.getString("AV5");
+        skillsInDatabase.add(temp);
+
+        //FA1
+        temp = currentValues.getString("FA1");
+        skillsInDatabase.add(temp);
+        //FA2
+        temp = currentValues.getString("FA2");
+        skillsInDatabase.add(temp);
+        //FA3
+        temp = currentValues.getString("FA3");
+        skillsInDatabase.add(temp);
+        //FA4
+        temp = currentValues.getString("FA4");
+        skillsInDatabase.add(temp);
+        //FA5
+        temp = currentValues.getString("FA5");
+        skillsInDatabase.add(temp);
+
+        //GO1
+        temp = currentValues.getString("GO1");
+        skillsInDatabase.add(temp);
+        //GO2
+        temp = currentValues.getString("GO2");
+        skillsInDatabase.add(temp);
+        //GO3
+        temp = currentValues.getString("GO3");
+        skillsInDatabase.add(temp);
+        //GO4
+        temp = currentValues.getString("GO4");
+        skillsInDatabase.add(temp);
+        //GO5
+        temp = currentValues.getString("GO5");
+        skillsInDatabase.add(temp);
+
+        //GR1
+        temp = currentValues.getString("GR1");
+        skillsInDatabase.add(temp);
+        //GR2
+        temp = currentValues.getString("GR2");
+        skillsInDatabase.add(temp);
+        //GR3
+        temp = currentValues.getString("GR3");
+        skillsInDatabase.add(temp);
+        //GR4
+        temp = currentValues.getString("GR4");
+        skillsInDatabase.add(temp);
+        //GR5
+        temp = currentValues.getString("GR5");
+        skillsInDatabase.add(temp);
+
+        //SU1
+        temp = currentValues.getString("SU1");
+        skillsInDatabase.add(temp);
+        //SU2
+        temp = currentValues.getString("SU2");
+        skillsInDatabase.add(temp);
+        //SU3
+        temp = currentValues.getString("SU3");
+        skillsInDatabase.add(temp);
+        //SU4
+        temp = currentValues.getString("SU4");
+        skillsInDatabase.add(temp);
+        //SU5
+        temp = currentValues.getString("SU5");
+        skillsInDatabase.add(temp);
+
+
+
+
+
+
+
         spinner = (Spinner) findViewById(R.id.spinner);
         skillListView = (ListView) findViewById(R.id.skillList);
         backButton = (Button) findViewById(R.id.backbutton);
@@ -79,13 +183,13 @@ public class UpdateSkills extends AppCompatActivity {
         spinAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, skills);
         spinAdapter.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item);
         spinner.setAdapter(spinAdapter);
-        listAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, skillList);
+        listAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, skillsInDatabase); //populates the list
         skillListView.setAdapter(listAdapter);
-
 
         spinner.setOnItemSelectedListener(spinnerListener);
         backButton.setOnClickListener(backListener);
         confirmUpdateButton.setOnClickListener(confirmUpdateListener);
+
     }
 
     Spinner.OnItemSelectedListener spinnerListener = new AdapterView.OnItemSelectedListener() {
