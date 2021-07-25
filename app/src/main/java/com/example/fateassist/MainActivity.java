@@ -210,8 +210,8 @@ public class MainActivity extends AppCompatActivity {
         character5Button.setOnClickListener(imageListener);
         character6Button.setOnClickListener(imageListener);
 
-        // NOT YET IMPLEMENTED
-        playButton.setOnClickListener(playListener);
+        // REDONE, NOT NEEDED
+        //playButton.setOnClickListener(playListener);
 
         // IMPLEMENTED WITH URL INSTEAD OF DOCUMENT
         rulesButton.setOnClickListener(rulesListener);
@@ -282,7 +282,7 @@ public class MainActivity extends AppCompatActivity {
                     startActivity(intent);
                 }
                 else {
-                    intent = new Intent(MainActivity.this, UpdateCharacter.class);
+                    intent = new Intent(MainActivity.this, updateOrPlayActivity.class);
                     intent.putExtra("profile", 1);
                     startActivity(intent);
                 }
@@ -294,7 +294,7 @@ public class MainActivity extends AppCompatActivity {
                     startActivity(intent);
                 }
                 else {
-                    intent = new Intent(MainActivity.this, UpdateCharacter.class);
+                    intent = new Intent(MainActivity.this, updateOrPlayActivity.class);
                     intent.putExtra("profile", 2);
                     startActivity(intent);
                 }
@@ -306,7 +306,7 @@ public class MainActivity extends AppCompatActivity {
                     startActivity(intent);
                 }
                 else {
-                    intent = new Intent(MainActivity.this, UpdateCharacter.class);
+                    intent = new Intent(MainActivity.this, updateOrPlayActivity.class);
                     intent.putExtra("profile", 3);
                     startActivity(intent);
                 }
@@ -318,7 +318,7 @@ public class MainActivity extends AppCompatActivity {
                     startActivity(intent);
                 }
                 else {
-                    intent = new Intent(MainActivity.this, UpdateCharacter.class);
+                    intent = new Intent(MainActivity.this, updateOrPlayActivity.class);
                     intent.putExtra("profile", 4);
                     startActivity(intent);
                 }
@@ -330,7 +330,7 @@ public class MainActivity extends AppCompatActivity {
                     startActivity(intent);
                 }
                 else {
-                    intent = new Intent(MainActivity.this, UpdateCharacter.class);
+                    intent = new Intent(MainActivity.this, updateOrPlayActivity.class);
                     intent.putExtra("profile", 5);
                     startActivity(intent);
                 }
@@ -342,7 +342,7 @@ public class MainActivity extends AppCompatActivity {
                     startActivity(intent);
                 }
                 else {
-                    intent = new Intent(MainActivity.this, UpdateCharacter.class);
+                    intent = new Intent(MainActivity.this, updateOrPlayActivity.class);
                     intent.putExtra("profile", 6);
                     startActivity(intent);
                 }
@@ -351,14 +351,15 @@ public class MainActivity extends AppCompatActivity {
         }
     };
 
-    //IMPLEMENTED 7/20
-    View.OnClickListener playListener = new View.OnClickListener() {
+    //Not Needed
+    /*View.OnClickListener playListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
             Intent playIntent = new Intent(MainActivity.this, PlayActivity.class);
             startActivity(playIntent);
         }
     };
+    */
 
     // IMPLEMENTED WITH URL INSTEAD OF DOCUMENT
     View.OnClickListener rulesListener = new View.OnClickListener() {
