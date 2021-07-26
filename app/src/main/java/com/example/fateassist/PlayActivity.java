@@ -40,6 +40,33 @@ public class PlayActivity extends AppCompatActivity {
         TextView c2TextView = findViewById(R.id.c2TextView);
         TextView c3TextView = findViewById(R.id.c3TextView);
 
+        TextView S1 = findViewById(R.id.S1);
+        TextView S2 = findViewById(R.id.S2);
+        TextView S3 = findViewById(R.id.S3);
+        TextView S4 = findViewById(R.id.S4);
+        TextView S5 = findViewById(R.id.S5);
+        TextView GR1 = findViewById(R.id.GR1);
+        TextView GR2 = findViewById(R.id.GR2);
+        TextView GR3 = findViewById(R.id.GR3);
+        TextView GR4 = findViewById(R.id.GR4);
+        TextView GR5 = findViewById(R.id.GR5);
+        TextView GO1 = findViewById(R.id.GO1);
+        TextView GO2 = findViewById(R.id.GO2);
+        TextView GO3 = findViewById(R.id.GO3);
+        TextView GO4 = findViewById(R.id.GO4);
+        TextView GO5 = findViewById(R.id.GO5);
+        TextView F1 = findViewById(R.id.F1);
+        TextView F2 = findViewById(R.id.F2);
+        TextView F3 = findViewById(R.id.F3);
+        TextView F4 = findViewById(R.id.F4);
+        TextView F5 = findViewById(R.id.F5);
+        TextView A1 = findViewById(R.id.A1);
+        TextView A2 = findViewById(R.id.A2);
+        TextView A3 = findViewById(R.id.A3);
+        TextView A4 = findViewById(R.id.A4);
+        TextView A5 = findViewById(R.id.A5);
+
+
         DBHelper dbHelper = new DBHelper();
 
 
@@ -52,7 +79,7 @@ public class PlayActivity extends AppCompatActivity {
         }
 
         //pass in the name of the profile here
-        String name = "CHAR_NAME";
+        String name = "name";
         Bundle currentValues = DBHelper.GetCharacter(getApplicationContext(), name);
 
         //name
@@ -86,6 +113,114 @@ public class PlayActivity extends AppCompatActivity {
         //Consequence 3
         temp = currentValues.getString("C6");
         c3TextView.setText("Consequence 3: " + temp);
+
+
+        //Skills//
+        //superb
+        temp = currentValues.getString("SU1");
+        if(temp != null)
+            S1.setText(temp);
+
+        temp = currentValues.getString("SU2");
+        if(temp != null)
+            S2.setText(temp);
+
+        temp = currentValues.getString("SU3");
+        if(temp != null)
+            S3.setText(temp);
+
+        temp = currentValues.getString("SU4");
+        if(temp != null)
+            S4.setText(temp);
+
+        temp = currentValues.getString("SU5");
+        if(temp != null)
+            S5.setText(temp);
+
+        //Great
+        temp = currentValues.getString("GR1");
+        if(temp != null)
+            GR1.setText(temp);
+
+        temp = currentValues.getString("GR2");
+        if(temp != null)
+            GR2.setText(temp);
+
+        temp = currentValues.getString("GR3");
+        if(temp != null)
+            GR3.setText(temp);
+
+        temp = currentValues.getString("GR4");
+        if(temp != null)
+            GR4.setText(temp);
+
+        temp = currentValues.getString("GR5");
+        if(temp != null)
+            GR5.setText(temp);
+
+        //Good
+        temp = currentValues.getString("GO1");
+        if(temp != null)
+            GO1.setText(temp);
+
+        temp = currentValues.getString("GO2");
+        if(temp != null)
+            GO2.setText(temp);
+
+        temp = currentValues.getString("GO3");
+        if(temp != null)
+            GO3.setText(temp);
+
+        temp = currentValues.getString("GO4");
+        if(temp != null)
+            GO4.setText(temp);
+
+        temp = currentValues.getString("GO5");
+        if(temp != null)
+            GO5.setText(temp);
+
+        //Fair
+        temp = currentValues.getString("FA1");
+        if(temp != null)
+            F1.setText(temp);
+
+        temp = currentValues.getString("FA2");
+        if(temp != null)
+            F2.setText(temp);
+
+        temp = currentValues.getString("FA3");
+        if(temp != null)
+            F3.setText(temp);
+
+        temp = currentValues.getString("FA4");
+        if(temp != null)
+            F4.setText(temp);
+
+        temp = currentValues.getString("FA5");
+        if(temp != null)
+            F5.setText(temp);
+
+        //Average
+        temp = currentValues.getString("AV1");
+        if(temp != null)
+            A1.setText(temp);
+
+        temp = currentValues.getString("AV2");
+        if(temp != null)
+            A2.setText(temp);
+
+        temp = currentValues.getString("AV3");
+        if(temp != null)
+            A3.setText(temp);
+
+        temp = currentValues.getString("AV4");
+        if(temp != null)
+            A4.setText(temp);
+
+        temp = currentValues.getString("AV5");
+        if(temp != null)
+            A5.setText(temp);
+
 
 
         Integer[] diceArray = {20, 12, 10, 8, 6, 4};
