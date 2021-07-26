@@ -62,7 +62,9 @@
         android:layout_marginTop="55dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/fateLabel"
-        app:srcCompat="@android:drawable/ic_input_add" />
+        app:srcCompat="@android:drawable/ic_input_add"
+        android:scaleType="fitCenter"
+        android:adjustViewBounds="true"/>
 
     <ImageButton
         android:id="@+id/character2Button"
@@ -72,7 +74,9 @@
         android:layout_marginTop="55dp"
         app:layout_constraintStart_toEndOf="@+id/character1Button"
         app:layout_constraintTop_toBottomOf="@+id/fateLabel"
-        app:srcCompat="@android:drawable/ic_input_add" />
+        app:srcCompat="@android:drawable/ic_input_add"
+        android:scaleType="fitCenter"
+        android:adjustViewBounds="true"/>
 
     <ImageButton
         android:id="@+id/character3Button"
@@ -82,7 +86,9 @@
         android:layout_marginTop="55dp"
         app:layout_constraintStart_toEndOf="@+id/character2Button"
         app:layout_constraintTop_toBottomOf="@+id/fateLabel"
-        app:srcCompat="@android:drawable/ic_input_add" />
+        app:srcCompat="@android:drawable/ic_input_add"
+        android:scaleType="fitCenter"
+        android:adjustViewBounds="true"/>
 
     <ImageButton
         android:id="@+id/character4Button"
@@ -92,7 +98,9 @@
         android:layout_marginTop="55dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/character1Label"
-        app:srcCompat="@android:drawable/ic_input_add" />
+        app:srcCompat="@android:drawable/ic_input_add"
+        android:scaleType="fitCenter"
+        android:adjustViewBounds="true"/>
 
     <ImageButton
         android:id="@+id/character5Button"
@@ -102,7 +110,9 @@
         android:layout_marginTop="55dp"
         app:layout_constraintStart_toEndOf="@+id/character4Button"
         app:layout_constraintTop_toBottomOf="@+id/character2Label"
-        app:srcCompat="@android:drawable/ic_input_add" />
+        app:srcCompat="@android:drawable/ic_input_add"
+        android:scaleType="fitCenter"
+        android:adjustViewBounds="true"/>
 
     <ImageButton
         android:id="@+id/character6Button"
@@ -112,7 +122,9 @@
         android:layout_marginTop="55dp"
         app:layout_constraintStart_toEndOf="@+id/character5Button"
         app:layout_constraintTop_toBottomOf="@+id/character3Label"
-        app:srcCompat="@android:drawable/ic_input_add" />
+        app:srcCompat="@android:drawable/ic_input_add"
+        android:scaleType="fitCenter"
+        android:adjustViewBounds="true"/>
 
     <TextView
         android:id="@+id/character2Label"
@@ -158,14 +170,5 @@
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/character4Label" />
-
-    <ImageView
-        android:id="@+id/sampleImageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="83dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

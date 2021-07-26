@@ -55,15 +55,15 @@ public class MainActivity extends AppCompatActivity {
     // booleans for ImageButtons
     // if false will take you to create new character activity
     // if true will take you to update character activity
-    static boolean character1 = false;
-    static boolean character2 = false;
-    static boolean character3 = false;
-    static boolean character4 = false;
-    static boolean character5 = false;
-    static boolean character6 = false;
+    static String character1 = null;
+    static String character2 = null;
+    static String character3 = null;
+    static String character4 = null;
+    static String character5 = null;
+    static String character6 = null;
 
     // shared preferences
-    public static final String PREFS_NAME = "profiles";
+    public static final String PREFS_NAME = "profileNames";
     SharedPreferences profiles;
     //This may or may not be useful to you, just know that these should be the options
     //for each skill box
@@ -101,8 +101,6 @@ public class MainActivity extends AppCompatActivity {
                     Bitmap bitmap = null;
                     try {
                         bitmap = MediaStore.Images.Media.getBitmap(getApplicationContext().getContentResolver(), selectedImage);
-                        ImageView img = findViewById(R.id.sampleImageView);
-
                         byte[] imgBytes = DBHelper.getBytes(bitmap);
 
                         Bundle charData = new Bundle();
@@ -161,7 +159,6 @@ public class MainActivity extends AppCompatActivity {
 
                         Bitmap newbitmap = DBHelper.getImage(newBytes);
 
-                        img.setImageBitmap(newbitmap);
                     } catch (IOException e) {
                         // TODO Auto-generated catch block
                         e.printStackTrace();
@@ -195,14 +192,58 @@ public class MainActivity extends AppCompatActivity {
         character6Label = (TextView) findViewById(R.id.character6Label);
 
         profiles = getSharedPreferences(PREFS_NAME, 0);
-        character1 = profiles.getBoolean("profile1", false);
-        character2 = profiles.getBoolean("profile2", false);
-        character3 = profiles.getBoolean("profile3", false);
-        character4 = profiles.getBoolean("profile4", false);
-        character5 = profiles.getBoolean("profile5", false);
-        character6 = profiles.getBoolean("profile6", false);
+        character1 = profiles.getString("profile1", null);
+        character2 = profiles.getString("profile2", null);
+        character3 = profiles.getString("profile3", null);
+        character4 = profiles.getString("profile4", null);
+        character5 = profiles.getString("profile5", null);
+        character6 = profiles.getString("profile6", null);
 
+        if (character1 != null){
+            character1Label.setText(character1);
+            character1Label.setText(character1);
+            Bundle newBundle = DBHelper.GetCharacter(getApplicationContext(), character1);
+            byte[] newByte = newBundle.getByteArray("IMG");
+            Bitmap newBitmap = DBHelper.getImage(newByte);
+            character1Button.setImageBitmap(newBitmap);
 
+        }
+        if (character2 != null){
+            character2Label.setText(character2);
+            Bundle newBundle = DBHelper.GetCharacter(getApplicationContext(), character1);
+            byte[] newByte = newBundle.getByteArray("IMG");
+            Bitmap newBitmap = DBHelper.getImage(newByte);
+            character1Button.setImageBitmap(newBitmap);
+        }
+        if (character3 != null){
+            character3Label.setText(character3);
+            Bundle newBundle = DBHelper.GetCharacter(getApplicationContext(), character1);
+            byte[] newByte = newBundle.getByteArray("IMG");
+            Bitmap newBitmap = DBHelper.getImage(newByte);
+            character1Button.setImageBitmap(newBitmap);
+        }
+        if (character4 != null){
+            character4Label.setText(character4);
+            Bundle newBundle = DBHelper.GetCharacter(getApplicationContext(), character1);
+            byte[] newByte = newBundle.getByteArray("IMG");
+            Bitmap newBitmap = DBHelper.getImage(newByte);
+            character1Button.setImageBitmap(newBitmap);
+        }
+        if (character5 != null){
+            character5Label.setText(character5);
+            Bundle newBundle = DBHelper.GetCharacter(getApplicationContext(), character1);
+            byte[] newByte = newBundle.getByteArray("IMG");
+            Bitmap newBitmap = DBHelper.getImage(newByte);
+            character1Button.setImageBitmap(newBitmap);
+        }
+        if (character6 != null){
+            character6Label.setText(character6);
+            Bundle newBundle = DBHelper.GetCharacter(getApplicationContext(), character1);
+            byte[] newByte = newBundle.getByteArray("IMG");
+            Bitmap newBitmap = DBHelper.getImage(newByte);
+            character1Button.setImageBitmap(newBitmap);
+        }
+        
         character1Button.setOnClickListener(imageListener);
         character2Button.setOnClickListener(imageListener);
         character3Button.setOnClickListener(imageListener);
@@ -231,41 +272,57 @@ public class MainActivity extends AppCompatActivity {
         
         
         profiles = getSharedPreferences(PREFS_NAME, 0);
-        character1 = profiles.getBoolean("profile1", false);
-        character2 = profiles.getBoolean("profile2", false);
-        character3 = profiles.getBoolean("profile3", false);
-        character4 = profiles.getBoolean("profile4", false);
-        character5 = profiles.getBoolean("profile5", false);
-        character6 = profiles.getBoolean("profile6", false);
-        
-        String name = charData.getString("CHAR_NAME");
-        byte[] newBytes = charData.getByteArray("IMG");
-        Bitmap newbitmap = DBHelper.getImage(newBytes);
-        switch (profileNum){
-            case 1:
-                character1Button.setImageBitmap(newbitmap);
-                character1Label.setText(name);
-                break;
-            case 2:
-                character2Button.setImageBitmap(newbitmap);
-                character2Label.setText(name);
-                break;
-            case 3:
-                character3Button.setImageBitmap(newbitmap);
-                character3Label.setText(name);
-                break;
-            case 4:
-                character4Button.setImageBitmap(newbitmap);
-                character4Label.setText(name);
-                break;
-            case 5:
-                character5Button.setImageBitmap(newbitmap);
-                character5Label.setText(name);
-                break;
-            case 6:
-                character6Button.setImageBitmap(newbitmap);
-                character6Label.setText(name);
-                break;
+        character1 = profiles.getString("profile1", null);
+        character2 = profiles.getString("profile2", null);
+        character3 = profiles.getString("profile3", null);
+        character4 = profiles.getString("profile4", null);
+        character5 = profiles.getString("profile5", null);
+        character6 = profiles.getString("profile6", null);
+
+        if (character1 != null){
+            character1Label.setText(character1);
+            Bundle newBundle = DBHelper.GetCharacter(getApplicationContext(), character1);
+            byte[] newByte = newBundle.getByteArray("IMG");
+            Bitmap newBitmap = DBHelper.getImage(newByte);
+            character1Button.setImageBitmap(newBitmap);
+
+
+        }
+        if (character2 != null){
+            character2Label.setText(character2);
+            Bundle newBundle = DBHelper.GetCharacter(getApplicationContext(), character1);
+            byte[] newByte = newBundle.getByteArray("IMG");
+            Bitmap newBitmap = DBHelper.getImage(newByte);
+            character1Button.setImageBitmap(newBitmap);
+
+        }
+        if (character3 != null){
+            character3Label.setText(character3);
+            Bundle newBundle = DBHelper.GetCharacter(getApplicationContext(), character1);
+            byte[] newByte = newBundle.getByteArray("IMG");
+            Bitmap newBitmap = DBHelper.getImage(newByte);
+            character1Button.setImageBitmap(newBitmap);
+        }
+        if (character4 != null){
+            character4Label.setText(character4);
+            Bundle newBundle = DBHelper.GetCharacter(getApplicationContext(), character1);
+            byte[] newByte = newBundle.getByteArray("IMG");
+            Bitmap newBitmap = DBHelper.getImage(newByte);
+            character1Button.setImageBitmap(newBitmap);
+        }
+        if (character5 != null){
+            character5Label.setText(character5);
+            Bundle newBundle = DBHelper.GetCharacter(getApplicationContext(), character1);
+            byte[] newByte = newBundle.getByteArray("IMG");
+            Bitmap newBitmap = DBHelper.getImage(newByte);
+            character1Button.setImageBitmap(newBitmap);
+        }
+        if (character6 != null){
+            character6Label.setText(character6);
+            Bundle newBundle = DBHelper.GetCharacter(getApplicationContext(), character1);
+            byte[] newByte = newBundle.getByteArray("IMG");
+            Bitmap newBitmap = DBHelper.getImage(newByte);
+            character1Button.setImageBitmap(newBitmap);
         }
         
 
@@ -276,7 +333,7 @@ public class MainActivity extends AppCompatActivity {
         public void onClick(View v) {
             Intent intent;
             if (v == character1Button) {
-                if (character1 == false) {
+                if (character1 == null) {
                     intent = new Intent(MainActivity.this, AddCharacter.class);
                     intent.putExtra("profile", 1);
                     startActivity(intent);
@@ -288,7 +345,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
             if (v == character2Button){
-                if (character2 == false){
+                if (character2 == null){
                     intent = new Intent(MainActivity.this, AddCharacter.class);
                     intent.putExtra("profile", 2);
                     startActivity(intent);
@@ -300,7 +357,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
             if (v == character3Button){
-                if (character3 == false){
+                if (character3 == null){
                     intent = new Intent(MainActivity.this, AddCharacter.class);
                     intent.putExtra("profile", 3);
                     startActivity(intent);
@@ -312,7 +369,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
             if (v == character4Button){
-                if (character4 == false){
+                if (character4 == null){
                     intent = new Intent(MainActivity.this, AddCharacter.class);
                     intent.putExtra("profile", 4);
                     startActivity(intent);
@@ -324,7 +381,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
             if (v == character5Button){
-                if (character5 == false){
+                if (character5 == null){
                     intent = new Intent(MainActivity.this, AddCharacter.class);
                     intent.putExtra("profile", 5);
                     startActivity(intent);
@@ -336,7 +393,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
             if (v == character6Button){
-                if (character6 == false){
+                if (character6 == null){
                     intent = new Intent(MainActivity.this, AddCharacter.class);
                     intent.putExtra("profile", 6);
                     startActivity(intent);
@@ -377,12 +434,12 @@ public class MainActivity extends AppCompatActivity {
         super.onStop();
         profiles = getSharedPreferences(PREFS_NAME, 0);
         SharedPreferences.Editor editor = profiles.edit();
-        editor.putBoolean("profile1", character1);
-        editor.putBoolean("profile2", character2);
-        editor.putBoolean("profile3", character3);
-        editor.putBoolean("profile4", character4);
-        editor.putBoolean("profile5", character5);
-        editor.putBoolean("profile6", character6);
+        editor.putString("profile1", character1);
+        editor.putString("profile2", character2);
+        editor.putString("profile3", character3);
+        editor.putString("profile4", character4);
+        editor.putString("profile5", character5);
+        editor.putString("profile6", character6);
         editor.commit();
 
     }

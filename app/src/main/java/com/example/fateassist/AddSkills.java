@@ -57,17 +57,12 @@ public class AddSkills extends AppCompatActivity {
     static int avgText = 1;
 
     SharedPreferences profiles;
-    SharedPreferences profile2;
-    SharedPreferences profile3;
-    SharedPreferences profile4;
-    SharedPreferences profile5;
-    SharedPreferences profile6;
-    static boolean character1 = false;
-    static boolean character2 = false;
-    static boolean character3 = false;
-    static boolean character4 = false;
-    static boolean character5 = false;
-    static boolean character6 = false;
+    static String character1 = null;
+    static String character2 = null;
+    static String character3 = null;
+    static String character4 = null;
+    static String character5 = null;
+    static String character6 = null;
 
     Button backButton;
     Button confirmButton;
@@ -148,12 +143,12 @@ public class AddSkills extends AppCompatActivity {
 
 
         profiles = getSharedPreferences(MainActivity.PREFS_NAME, 0);
-        character1 = profiles.getBoolean("profile1", false);
-        character2 = profiles.getBoolean("profile2", false);
-        character3 = profiles.getBoolean("profile3", false);
-        character4 = profiles.getBoolean("profile4", false);
-        character5 = profiles.getBoolean("profile5", false);
-        character6 = profiles.getBoolean("profile6", false);
+        character1 = profiles.getString("profile1", null);
+        character2 = profiles.getString("profile2", null);
+        character3 = profiles.getString("profile3", null);
+        character4 = profiles.getString("profile4", null);
+        character5 = profiles.getString("profile5", null);
+        character6 = profiles.getString("profile6", null);
 
         skills = getResources().getStringArray(R.array.skills);
 
@@ -441,22 +436,22 @@ public class AddSkills extends AppCompatActivity {
                 SharedPreferences.Editor editor = profiles.edit();
                 switch (profileNum) {
                     case 1:
-                        editor.putBoolean("profile1", true);
+                        editor.putString("profile1", name);
                         break; 
                     case 2:
-                        editor.putBoolean("profile2", true);
+                        editor.putString("profile2", name);
                         break; 
                     case 3:
-                        editor.putBoolean("profile3", true);
+                        editor.putString("profile3", name);
                         break;
                     case 4:
-                        editor.putBoolean("profile4", true);
+                        editor.putString("profile4", name);
                         break;
                     case 5:
-                        editor.putBoolean("profile5", true);
+                        editor.putString("profile5", name);
                         break;
                     case 6:
-                        editor.putBoolean("profile6", true);
+                        editor.putString("profile6", name);
                         break;
                     }
                     editor.commit();
