@@ -175,6 +175,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         character1Button = (ImageButton) findViewById(R.id.character1Button);
         character2Button = (ImageButton) findViewById(R.id.character2Button);
         character3Button = (ImageButton) findViewById(R.id.character3Button);

@@ -151,8 +151,6 @@ public class UpdateCharacter extends AppCompatActivity {
     }
 
 
-
-
     View.OnClickListener cancelListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {

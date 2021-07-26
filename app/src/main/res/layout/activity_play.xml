@@ -7,11 +7,11 @@
     tools:context=".PlayActivity">
 
     <TextView
-        android:id="@+id/s2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="144dp"
+        android:id="@+id/fatePointsBox"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="148dp"
         android:background="@drawable/textbox"
         android:textAlignment="center"
         android:textColor="#000000"
@@ -575,12 +575,12 @@
         app:layout_constraintTop_toBottomOf="@+id/diceSpinner" />
 
     <Button
-        android:id="@+id/button"
-        android:layout_width="67dp"
-        android:layout_height="47dp"
-        android:layout_marginStart="18dp"
-        android:layout_marginTop="88dp"
-        android:text="Button"
+        android:id="@+id/refreshButton"
+        android:layout_width="111dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="84dp"
+        android:text="refresh"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/fatePointsTextView" />
 

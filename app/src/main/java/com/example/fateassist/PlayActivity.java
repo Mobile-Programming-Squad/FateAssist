@@ -70,6 +70,7 @@ public class PlayActivity extends AppCompatActivity {
         TextView A3 = findViewById(R.id.A3);
         TextView A4 = findViewById(R.id.A4);
         TextView A5 = findViewById(R.id.A5);
+        TextView fatePointsBox = findViewById(R.id.fatePointsBox);
 
 
 
@@ -240,6 +241,13 @@ public class PlayActivity extends AppCompatActivity {
         temp = currentValues.getString("AV5");
         if(temp != null)
             A5.setText(temp);
+
+        //Fate points
+        temp = currentValues.getString("FP");
+        //if(temp != null)
+            fatePointsBox.setText(temp);
+
+
 
 
 
