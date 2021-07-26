@@ -2,6 +2,8 @@ package com.example.fateassist;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -12,7 +14,10 @@ import android.widget.TextView;
 
 import java.util.Random;
 
+import static com.example.fateassist.MainActivity.PREFS_NAME;
+
 public class PlayActivity extends AppCompatActivity {
+    String name = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,19 +72,34 @@ public class PlayActivity extends AppCompatActivity {
         TextView A5 = findViewById(R.id.A5);
 
 
-        DBHelper dbHelper = new DBHelper();
+
+        //pass in the name of the profile here;
+        SharedPreferences profiles = getSharedPreferences(PREFS_NAME, 0);
 
 
-        //get intent from MainActivity
-        Bundle bundle = getIntent().getExtras();
-        Integer  profileChoice;
-        if (bundle != null) {
-            profileChoice = bundle.getInt("profile");
-            nameTextView.setText("Profile choice: " + profileChoice);
+        Intent intent = getIntent();
+        int profileNum = intent.getIntExtra("profile", 1);
+        switch (profileNum){
+            case 1:
+                name = profiles.getString("profile1",null);
+                break;
+            case 2:
+                name = profiles.getString("profile2",null);
+                break;
+            case 3:
+                name = profiles.getString("profile3",null);
+                break;
+            case 4:
+                name = profiles.getString("profile4",null);
+                break;
+            case 5:
+                name = profiles.getString("profile5",null);
+                break;
+            case 6:
+                name = profiles.getString("profile6",null);
+                break;
         }
 
-        //pass in the name of the profile here
-        String name = "name";
         Bundle currentValues = DBHelper.GetCharacter(getApplicationContext(), name);
 
         //name

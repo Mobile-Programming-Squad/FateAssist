@@ -16,6 +16,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CursorAdapter;
@@ -210,38 +211,38 @@ public class MainActivity extends AppCompatActivity {
         }
         if (character2 != null){
             character2Label.setText(character2);
-            Bundle newBundle = DBHelper.GetCharacter(getApplicationContext(), character1);
+            Bundle newBundle = DBHelper.GetCharacter(getApplicationContext(), character2);
             byte[] newByte = newBundle.getByteArray("IMG");
             Bitmap newBitmap = DBHelper.getImage(newByte);
-            character1Button.setImageBitmap(newBitmap);
+            character2Button.setImageBitmap(newBitmap);
         }
         if (character3 != null){
             character3Label.setText(character3);
-            Bundle newBundle = DBHelper.GetCharacter(getApplicationContext(), character1);
+            Bundle newBundle = DBHelper.GetCharacter(getApplicationContext(), character3);
             byte[] newByte = newBundle.getByteArray("IMG");
             Bitmap newBitmap = DBHelper.getImage(newByte);
-            character1Button.setImageBitmap(newBitmap);
+            character3Button.setImageBitmap(newBitmap);
         }
         if (character4 != null){
             character4Label.setText(character4);
-            Bundle newBundle = DBHelper.GetCharacter(getApplicationContext(), character1);
+            Bundle newBundle = DBHelper.GetCharacter(getApplicationContext(), character4);
             byte[] newByte = newBundle.getByteArray("IMG");
             Bitmap newBitmap = DBHelper.getImage(newByte);
-            character1Button.setImageBitmap(newBitmap);
+            character4Button.setImageBitmap(newBitmap);
         }
         if (character5 != null){
             character5Label.setText(character5);
-            Bundle newBundle = DBHelper.GetCharacter(getApplicationContext(), character1);
+            Bundle newBundle = DBHelper.GetCharacter(getApplicationContext(), character5);
             byte[] newByte = newBundle.getByteArray("IMG");
             Bitmap newBitmap = DBHelper.getImage(newByte);
-            character1Button.setImageBitmap(newBitmap);
+            character5Button.setImageBitmap(newBitmap);
         }
         if (character6 != null){
             character6Label.setText(character6);
-            Bundle newBundle = DBHelper.GetCharacter(getApplicationContext(), character1);
+            Bundle newBundle = DBHelper.GetCharacter(getApplicationContext(), character6);
             byte[] newByte = newBundle.getByteArray("IMG");
             Bitmap newBitmap = DBHelper.getImage(newByte);
-            character1Button.setImageBitmap(newBitmap);
+            character6Button.setImageBitmap(newBitmap);
         }
         
         character1Button.setOnClickListener(imageListener);
@@ -290,39 +291,39 @@ public class MainActivity extends AppCompatActivity {
         }
         if (character2 != null){
             character2Label.setText(character2);
-            Bundle newBundle = DBHelper.GetCharacter(getApplicationContext(), character1);
+            Bundle newBundle = DBHelper.GetCharacter(getApplicationContext(), character2);
             byte[] newByte = newBundle.getByteArray("IMG");
             Bitmap newBitmap = DBHelper.getImage(newByte);
-            character1Button.setImageBitmap(newBitmap);
+            character2Button.setImageBitmap(newBitmap);
 
         }
         if (character3 != null){
             character3Label.setText(character3);
-            Bundle newBundle = DBHelper.GetCharacter(getApplicationContext(), character1);
+            Bundle newBundle = DBHelper.GetCharacter(getApplicationContext(), character3);
             byte[] newByte = newBundle.getByteArray("IMG");
             Bitmap newBitmap = DBHelper.getImage(newByte);
-            character1Button.setImageBitmap(newBitmap);
+            character3Button.setImageBitmap(newBitmap);
         }
         if (character4 != null){
             character4Label.setText(character4);
-            Bundle newBundle = DBHelper.GetCharacter(getApplicationContext(), character1);
+            Bundle newBundle = DBHelper.GetCharacter(getApplicationContext(), character4);
             byte[] newByte = newBundle.getByteArray("IMG");
             Bitmap newBitmap = DBHelper.getImage(newByte);
-            character1Button.setImageBitmap(newBitmap);
+            character4Button.setImageBitmap(newBitmap);
         }
         if (character5 != null){
             character5Label.setText(character5);
-            Bundle newBundle = DBHelper.GetCharacter(getApplicationContext(), character1);
+            Bundle newBundle = DBHelper.GetCharacter(getApplicationContext(), character5);
             byte[] newByte = newBundle.getByteArray("IMG");
             Bitmap newBitmap = DBHelper.getImage(newByte);
-            character1Button.setImageBitmap(newBitmap);
+            character5Button.setImageBitmap(newBitmap);
         }
         if (character6 != null){
             character6Label.setText(character6);
-            Bundle newBundle = DBHelper.GetCharacter(getApplicationContext(), character1);
+            Bundle newBundle = DBHelper.GetCharacter(getApplicationContext(), character6);
             byte[] newByte = newBundle.getByteArray("IMG");
             Bitmap newBitmap = DBHelper.getImage(newByte);
-            character1Button.setImageBitmap(newBitmap);
+            character6Button.setImageBitmap(newBitmap);
         }
         
 
@@ -332,6 +333,7 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public void onClick(View v) {
             Intent intent;
+            Log.i("Testing", "msg");
             if (v == character1Button) {
                 if (character1 == null) {
                     intent = new Intent(MainActivity.this, AddCharacter.class);
@@ -341,6 +343,7 @@ public class MainActivity extends AppCompatActivity {
                 else {
                     intent = new Intent(MainActivity.this, updateOrPlayActivity.class);
                     intent.putExtra("profile", 1);
+                    intent.putExtra("profileName", character1);
                     startActivity(intent);
                 }
             }
@@ -353,6 +356,7 @@ public class MainActivity extends AppCompatActivity {
                 else {
                     intent = new Intent(MainActivity.this, updateOrPlayActivity.class);
                     intent.putExtra("profile", 2);
+                    intent.putExtra("profileName", character2);
                     startActivity(intent);
                 }
             }
@@ -365,6 +369,7 @@ public class MainActivity extends AppCompatActivity {
                 else {
                     intent = new Intent(MainActivity.this, updateOrPlayActivity.class);
                     intent.putExtra("profile", 3);
+                    intent.putExtra("profileName", character3);
                     startActivity(intent);
                 }
             }
@@ -377,6 +382,7 @@ public class MainActivity extends AppCompatActivity {
                 else {
                     intent = new Intent(MainActivity.this, updateOrPlayActivity.class);
                     intent.putExtra("profile", 4);
+                    intent.putExtra("profileName", character4);
                     startActivity(intent);
                 }
             }
@@ -389,6 +395,7 @@ public class MainActivity extends AppCompatActivity {
                 else {
                     intent = new Intent(MainActivity.this, updateOrPlayActivity.class);
                     intent.putExtra("profile", 5);
+                    intent.putExtra("profileName", character5);
                     startActivity(intent);
                 }
             }
@@ -401,6 +408,7 @@ public class MainActivity extends AppCompatActivity {
                 else {
                     intent = new Intent(MainActivity.this, updateOrPlayActivity.class);
                     intent.putExtra("profile", 6);
+                    intent.putExtra("profileName", character6);
                     startActivity(intent);
                 }
             }

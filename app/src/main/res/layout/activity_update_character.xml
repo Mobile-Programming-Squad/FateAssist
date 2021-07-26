@@ -12,7 +12,7 @@
         android:orientation="vertical"
         tools:context=".AddCharacter"
         tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="0dp">
+        tools:layout_editor_absoluteY="-234dp">
 
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -40,32 +40,12 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/stuntLabel" />
 
-            <ImageButton
-                android:id="@+id/avatarPictureButton"
-                android:layout_width="76dp"
-                android:layout_height="85dp"
-                android:layout_marginStart="167dp"
-                android:layout_marginTop="93dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@android:drawable/ic_menu_add" />
-
-            <TextView
-                android:id="@+id/avatarLabel"
-                android:layout_width="76dp"
-                android:layout_height="33dp"
-                android:layout_marginStart="167dp"
-                android:text="Character Avatar"
-                android:textAlignment="center"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/avatarPictureButton" />
-
             <TextView
                 android:id="@+id/nameLabel"
                 android:layout_width="50dp"
                 android:layout_height="23dp"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="208dp"
+                android:layout_marginTop="58dp"
                 android:text="Name"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -75,12 +55,12 @@
                 android:layout_width="214dp"
                 android:layout_height="48dp"
                 android:layout_marginStart="44dp"
-                android:layout_marginTop="12dp"
+                android:layout_marginTop="16dp"
                 android:ems="10"
                 android:hint="Name"
                 android:inputType="textPersonName"
                 app:layout_constraintStart_toEndOf="@+id/nameLabel"
-                app:layout_constraintTop_toBottomOf="@+id/avatarLabel" />
+                app:layout_constraintTop_toBottomOf="@+id/updateCharacterTextView" />
 
             <TextView
                 android:id="@+id/descriptionLabel"
@@ -234,7 +214,7 @@
                 android:layout_height="64dp"
                 android:layout_marginStart="27dp"
                 android:layout_marginTop="28dp"
-                android:text="Next Update"
+                android:text="Confirm Update"
                 android:textAlignment="center"
                 android:textSize="16sp"
                 android:textStyle="bold"

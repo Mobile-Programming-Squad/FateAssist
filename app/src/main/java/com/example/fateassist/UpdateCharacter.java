@@ -3,6 +3,7 @@ package com.example.fateassist;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -13,6 +14,7 @@ import android.widget.TextView;
 
 public class UpdateCharacter extends AppCompatActivity {
 
+    private static final String PREFS_NAME = "profileNames";
     TextView profileLabel;
     ImageButton avatar;
     TextView nameLabel;
@@ -33,6 +35,7 @@ public class UpdateCharacter extends AppCompatActivity {
     Button nextUpdateButton;
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,41 +52,68 @@ public class UpdateCharacter extends AppCompatActivity {
 */
 
 
-       // profileLabel = (TextView) findViewById(R.id.profileLabel);
-       // avatar = (ImageButton) findViewById(R.id.avatarPictureButton);
+        // profileLabel = (TextView) findViewById(R.id.profileLabel);
+        // avatar = (ImageButton) findViewById(R.id.avatarPictureButton);
         //nameLabel = (TextView) findViewById(R.id.nameLabel);
         nameField = (EditText) findViewById(R.id.nameField);
         //descriptionLabel = (TextView) findViewById(R.id.descriptionLabel);
         descriptionField = (EditText) findViewById(R.id.descriptionField);
-       // aspectsLabel = (TextView) findViewById(R.id.aspectsLabel);
+        // aspectsLabel = (TextView) findViewById(R.id.aspectsLabel);
         aspectsField = (EditText) findViewById(R.id.aspectsField);
-      //  stuntsLabel = (TextView) findViewById(R.id.stuntLabel);
+        //  stuntsLabel = (TextView) findViewById(R.id.stuntLabel);
         stuntsField = (EditText) findViewById(R.id.stuntsField);
-       // extrasLabel = (TextView) findViewById(R.id.extrasLabel);
+        // extrasLabel = (TextView) findViewById(R.id.extrasLabel);
         extrasField = (EditText) findViewById(R.id.extrasField);
         cancelButton = (Button) findViewById(R.id.cancelButton);
         nextUpdateButton = (Button) findViewById(R.id.nextUpdateButton);
-       // consequenceLabel = (TextView) findViewById(R.id.consequencesLabel);
+        // consequenceLabel = (TextView) findViewById(R.id.consequencesLabel);
         consequence1Field = (EditText) findViewById(R.id.consequence1Field);
         consequence2Field = (EditText) findViewById(R.id.consequence2Field);
         consequence3Field = (EditText) findViewById(R.id.consequence3Field);
 
         cancelButton.setOnClickListener(cancelListener);
         nextUpdateButton.setOnClickListener(nextUpdateListener);
-       // avatar.setOnClickListener(imageListener);
+        // avatar.setOnClickListener(imageListener);
 
 
-
-        //get intent from MainActivity
+        String name=null;
+/*         //get intent from MainActivity
         Bundle bundle = getIntent().getExtras();
         Integer  profileChoice;
         if (bundle != null) {
-            profileChoice = bundle.getInt("profile");
-           // nameTextView.setText("Profile choice: " + profileChoice);
+          //  name = bundle.getString("profile");
+
+        }
+*/
+
+        //pass in the name of the profile here !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!WORKING HERE!!!!!!!!!!!!!!!!!!!!!!!!!!
+        SharedPreferences profiles = getSharedPreferences(PREFS_NAME, 0);
+
+
+        Intent intent = getIntent();
+        int profileNum = intent.getIntExtra("profile", 1);
+        switch (profileNum){
+            case 1:
+                name = profiles.getString("profile1",null);
+                break;
+            case 2:
+                name = profiles.getString("profile2",null);
+                break;
+            case 3:
+                name = profiles.getString("profile3",null);
+                break;
+            case 4:
+                name = profiles.getString("profile4",null);
+                break;
+            case 5:
+                name = profiles.getString("profile5",null);
+                break;
+            case 6:
+                name = profiles.getString("profile6",null);
+                break;
         }
 
-        //pass in the name of the profile here
-        String name = "CHAR_NAME";
+        //querying database
         Bundle currentValues = DBHelper.GetCharacter(getApplicationContext(), name);
 
         //name
@@ -156,7 +186,8 @@ public class UpdateCharacter extends AppCompatActivity {
             DBHelper dbHelper = new DBHelper();
             dbHelper.EditCharacter(getApplicationContext(), charData); // crash on this line
 
-            Intent updateIntent = new Intent(getApplicationContext(), UpdateSkills.class);
+            //SENDS BACK TO MAIN ACTIVITY HERE INSTEAD OF UpdateSkills b/c wonky
+            Intent updateIntent = new Intent(getApplicationContext(), MainActivity.class);
             int profile = updateIntent.getIntExtra("profile", 1); //Probably need to change this once name gets passed
             updateIntent.putExtra("addCharacterBundle", charData);
             updateIntent.putExtra("profile", profile);
@@ -165,29 +196,4 @@ public class UpdateCharacter extends AppCompatActivity {
     };
 
 
-    /*    DBHelper helper;
-        Bundle charData;
-        Bitmap bitmap;
-        byte[] imgBytes = new byte[]{};
-        ActivityResultLauncher<String> GetImage = registerForActivityResult(new ActivityResultContracts.GetContent(),
-                new ActivityResultCallback<Uri>() {
-                    @Override
-                    public void onActivityResult(Uri uri) {
-                        // Handle the returned Uri
-                        bitmap = null;
-                        try {
-                            bitmap = MediaStore.Images.Media.getBitmap(getApplicationContext().getContentResolver(), uri);
-                            imgBytes = DBHelper.getBytes(bitmap);
-                        } catch (IOException e) {
-                            // TODO Auto-generated catch block
-                            e.printStackTrace();
-                        }
-                    }
-                }
-        );
-        */
-
-
-
-
-    }
+}

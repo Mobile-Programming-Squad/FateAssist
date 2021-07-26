@@ -9,6 +9,8 @@ import android.widget.Button;
 
 public class updateOrPlayActivity extends AppCompatActivity {
 
+    int profileNum =0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -18,28 +20,36 @@ public class updateOrPlayActivity extends AppCompatActivity {
         Button updateButton = findViewById(R.id.updateButton);
 
         //get intent from MainActivity
-        Bundle bundle = getIntent().getExtras();
-        Integer  profileChoice;
-
         playButton.setOnClickListener(playListener);
         updateButton.setOnClickListener(updateListener);
+
+        //getting
+        Intent intent = getIntent();
+        profileNum = intent.getIntExtra("profile", 1);
+
 
     }
 
     View.OnClickListener playListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            Intent intent = new Intent(getApplicationContext(), PlayActivity.class);
-            intent.putExtra("profile", 2); //change to name
+
+            //sending
+            Intent intent = new Intent(updateOrPlayActivity.this, PlayActivity.class);
+            intent.putExtra("profile", profileNum);
+
             startActivity(intent);
+
         }
     };
 
     View.OnClickListener updateListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            Intent intent = new Intent(getApplicationContext(), UpdateCharacter.class);
-            intent.putExtra("profile", 2); // change to name
+            //sending
+            Intent intent = new Intent(updateOrPlayActivity.this, UpdateCharacter.class);
+            intent.putExtra("profile", profileNum);
+
             startActivity(intent);
         }
     };

@@ -3,6 +3,7 @@ package com.example.fateassist;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -21,6 +22,7 @@ import java.util.List;
 
 public class UpdateSkills extends AppCompatActivity {
 
+    private static final String PREFS_NAME = "profileNames";
     Spinner spinner;
     ListView skillListView;
     Button backButton;
@@ -82,8 +84,11 @@ public class UpdateSkills extends AppCompatActivity {
         }
 
         //pass in the name of the profile here
-        String name = "CHAR_NAME";
+        String name = "name";
         Bundle currentValues = DBHelper.GetCharacter(getApplicationContext(), name);
+
+        SharedPreferences profiles = getSharedPreferences(PREFS_NAME, 0);
+        name = profiles.getString("profile1",null);
 
        // TextView usTV = findViewById(R.id.updateSkillsTextView);
         //AV1
@@ -229,8 +234,8 @@ public class UpdateSkills extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), name + " has been edited(but not really yet)", Toast.LENGTH_LONG).show();
 
                 Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-              //  intent.putExtra("bundle", charData);
-                //intent.putExtra("profile", profileNum);
+                intent.putExtra("bundle", charData);
+                intent.putExtra("profile", profileNum);
                 startActivity(intent);
             }
             else{
