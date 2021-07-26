@@ -153,6 +153,8 @@ public class UpdateCharacter extends AppCompatActivity {
             charData.putString("C4", C4);
             charData.putString("C6", C6);
 
+            DBHelper dbHelper = new DBHelper();
+            dbHelper.EditCharacter(getApplicationContext(), charData); // crash on this line
 
             Intent updateIntent = new Intent(getApplicationContext(), UpdateSkills.class);
             int profile = updateIntent.getIntExtra("profile", 1); //Probably need to change this once name gets passed
