@@ -75,7 +75,6 @@ public class AddSkills extends AppCompatActivity {
     ArrayList<String> skillList = new ArrayList<>();
     List<String> bundleNames = new ArrayList<>();
     ArrayAdapter<String> spinAdapter;
-    ArrayAdapter<String> listAdapter;
     Bundle charData;
     DBHelper helper;
     int profileNum;
@@ -83,6 +82,7 @@ public class AddSkills extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_skills);
+        charData = new Bundle();
         Intent intent = getIntent();
         charData = intent.getBundleExtra("addCharacterBundle");
         profileNum = intent.getIntExtra("profile", 1);
@@ -120,6 +120,33 @@ public class AddSkills extends AppCompatActivity {
         backButton = (Button) findViewById(R.id.backbutton);
         confirmButton = (Button) findViewById(R.id.confirmButton);
 
+        superb1.setText("");
+        superb2.setText("");
+        superb3.setText("");
+        superb4.setText("");
+        superb5.setText("");
+        great1.setText("");
+        great2.setText("");
+        great3.setText("");
+        great4.setText("");
+        great5.setText("");
+        good1.setText("");
+        good2.setText("");
+        good3.setText("");
+        good4.setText("");
+        good5.setText("");
+        fair1.setText("");
+        fair2.setText("");
+        fair3.setText("");
+        fair4.setText("");
+        fair5.setText("");
+        avg1.setText("");
+        avg2.setText("");
+        avg3.setText("");
+        avg4.setText("");
+        avg5.setText("");
+
+
         profiles = getSharedPreferences(MainActivity.PREFS_NAME, 0);
         character1 = profiles.getBoolean("profile1", false);
         character2 = profiles.getBoolean("profile2", false);
@@ -138,11 +165,6 @@ public class AddSkills extends AppCompatActivity {
         goodSpinner.setAdapter(spinAdapter);
         fairSpinner.setAdapter(spinAdapter);
         avgSpinner.setAdapter(spinAdapter);
-        superbSpinner.setPrompt("Select Skill");
-        greatSpinner.setPrompt("Select Skill");
-        goodSpinner.setPrompt("Select Skill");
-        fairSpinner.setPrompt("Select Skill");
-        avgSpinner.setPrompt("Select Skill");
 
 
         superbSpinner.setOnItemSelectedListener(superbListener);
@@ -157,34 +179,42 @@ public class AddSkills extends AppCompatActivity {
         @Override
         public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
             String item = parent.getItemAtPosition(position).toString();
+            if (position != 0) {
                 switch (superbText) {
                     case 1:
-                        charData.putString("su1", item);
+                        skillList.add(item);
+                        bundleNames.add("SU1");
                         superb1.setText(item);
                         superbText = 2;
                         break;
                     case 2:
-                        charData.putString("su2", item);
+                        skillList.add(item);
+                        bundleNames.add("SU2");
                         superb2.setText(item);
                         superbText = 3;
                         break;
                     case 3:
-                        charData.putString("su3", item);
+                        skillList.add(item);
+                        bundleNames.add("SU3");
                         superb3.setText(item);
                         superbText = 4;
                         break;
                     case 4:
-                        charData.putString("su4", item);
+                        skillList.add(item);
+                        bundleNames.add("SU4");
                         superb4.setText(item);
                         superbText = 5;
                         break;
                     case 5:
-                        charData.putString("su5", item);
+                        skillList.add(item);
+                        bundleNames.add("SU5");
                         superb5.setText(item);
                         superbText = 1;
                         break;
                 }
-            superbSpinner.setPrompt("Select Skill");
+            }
+            else
+                superbSpinner.setPrompt("Select skills");
         }
         @Override
         public void onNothingSelected(AdapterView<?> parent) {
@@ -196,34 +226,42 @@ public class AddSkills extends AppCompatActivity {
         @Override
         public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
             String item = parent.getItemAtPosition(position).toString();
+            if (position != 0) {
                 switch (greatText) {
                     case 1:
-                        charData.putString("gr1", item);
+                        skillList.add(item);
+                        bundleNames.add("GR1");
                         great1.setText(item);
                         greatText = 2;
                         break;
                     case 2:
-                        charData.putString("gr2", item);
+                        skillList.add(item);
+                        bundleNames.add("GR2");
                         great2.setText(item);
                         greatText = 3;
                         break;
                     case 3:
-                        charData.putString("gr3", item);
+                        skillList.add(item);
+                        bundleNames.add("GR3");
                         great3.setText(item);
                         greatText = 4;
                         break;
                     case 4:
-                        charData.putString("gr4", item);
+                        skillList.add(item);
+                        bundleNames.add("GR4");
                         great4.setText(item);
                         greatText = 5;
                         break;
                     case 5:
-                        charData.putString("gr4", item);
+                        skillList.add(item);
+                        bundleNames.add("GR5");
                         great5.setText(item);
                         greatText = 1;
                         break;
                 }
-            greatSpinner.setPrompt("Select Skill");
+            }
+            else
+                greatSpinner.setPrompt("Select skills");
         }
 
         @Override
@@ -236,34 +274,42 @@ public class AddSkills extends AppCompatActivity {
         @Override
         public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
             String item = parent.getItemAtPosition(position).toString();
+            if (position != 0) {
                 switch (goodText) {
                     case 1:
-                        charData.putString("go1", item);
+                        skillList.add(item);
+                        bundleNames.add("GO1");
                         good1.setText(item);
                         goodText = 2;
                         break;
                     case 2:
-                        charData.putString("go2", item);
+                        skillList.add(item);
+                        bundleNames.add("GO2");
                         good2.setText(item);
                         goodText = 3;
                         break;
                     case 3:
-                        charData.putString("go3", item);
+                        skillList.add(item);
+                        bundleNames.add("GO3");
                         good3.setText(item);
                         goodText = 4;
                         break;
                     case 4:
-                        charData.putString("go4", item);
+                        skillList.add(item);
+                        bundleNames.add("GO4");
                         good4.setText(item);
                         goodText = 5;
                         break;
                     case 5:
-                        charData.putString("go5", item);
+                        skillList.add(item);
+                        bundleNames.add("GO5");
                         good5.setText(item);
                         goodText = 1;
                         break;
                 }
-            goodSpinner.setPrompt("Select Skill");
+            }
+            else
+                goodSpinner.setPrompt("Select skills");
         }
 
         @Override
@@ -276,34 +322,42 @@ public class AddSkills extends AppCompatActivity {
         @Override
         public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
             String item = parent.getItemAtPosition(position).toString();
+            if (position != 0) {
                 switch (fairText) {
                     case 1:
-                        charData.putString("fa1", item);
+                        skillList.add(item);
+                        bundleNames.add("FA1");
                         fair1.setText(item);
                         fairText = 2;
                         break;
                     case 2:
-                        charData.putString("fa2", item);
+                        skillList.add(item);
+                        bundleNames.add("FA2");
                         fair2.setText(item);
                         fairText = 3;
                         break;
                     case 3:
-                        charData.putString("fa3", item);
+                        skillList.add(item);
+                        bundleNames.add("FA3");
                         fair3.setText(item);
                         fairText = 4;
                         break;
                     case 4:
-                        charData.putString("fa4", item);
+                        skillList.add(item);
+                        bundleNames.add("FA4");
                         fair4.setText(item);
                         fairText = 5;
                         break;
                     case 5:
-                        charData.putString("fa5", item);
+                        skillList.add(item);
+                        bundleNames.add("FA5");
                         fair5.setText(item);
                         fairText = 1;
                         break;
                 }
-            fairSpinner.setPrompt("Select Skill");
+            }
+            else
+                fairSpinner.setPrompt("Select skills");
         }
 
         @Override
@@ -316,35 +370,42 @@ public class AddSkills extends AppCompatActivity {
         @Override
         public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
             String item = parent.getItemAtPosition(position).toString();
+            if (position != 0) {
                 switch (avgText) {
                     case 1:
-                        charData.putString("av1", item);
+                        skillList.add(item);
+                        bundleNames.add("AV1");
                         avg1.setText(item);
                         avgText = 2;
                         break;
                     case 2:
-                        charData.putString("av2", item);
+                        skillList.add(item);
+                        bundleNames.add("AV2");
                         avg2.setText(item);
                         avgText = 3;
                         break;
                     case 3:
-                        charData.putString("av3", item);
+                        skillList.add(item);
+                        bundleNames.add("AV3");
                         avg3.setText(item);
                         avgText = 4;
                         break;
                     case 4:
-                        charData.putString("av4", item);
+                        skillList.add(item);
+                        bundleNames.add("AV4");
                         avg4.setText(item);
                         avgText = 5;
                         break;
                     case 5:
-                        charData.putString("av5", item);
+                        skillList.add(item);
+                        bundleNames.add("AV5");
                         avg5.setText(item);
                         avgText = 1;
                         break;
                 }
-            avgSpinner.setPrompt("Select Skill");
-
+            }
+            else
+                avgSpinner.setPrompt("Select skills");
         }
 
         @Override
@@ -369,31 +430,34 @@ public class AddSkills extends AppCompatActivity {
         @Override
         public void onClick(View v) {
             String name = charData.get("CHAR_NAME").toString();
+            helper = new DBHelper();
+            if (skillList.size() > 0){
+                for (int i = 0; i < skillList.size(); i++){
+                    charData.putString(bundleNames.get(i), skillList.get(i));
+                }
                 helper.AddCharacter(getApplicationContext(), charData);
                 Log.i("DB", name + " was added");
                 Toast.makeText(AddSkills.this, name + " has been added", Toast.LENGTH_LONG).show();
-
-                if (superbText != 1 || greatText != 1 || goodText != 1 || fairText != 1 || avgText != 1) {
-                    SharedPreferences.Editor editor = profiles.edit();
-                    switch (profileNum) {
-                        case 1:
-                            editor.putBoolean("profile1", true);
-                            break;
-                        case 2:
-                            editor.putBoolean("profile2", true);
-                            break;
-                        case 3:
-                            editor.putBoolean("profile3", true);
-                            break;
-                        case 4:
-                            editor.putBoolean("profile4", true);
-                            break;
-                        case 5:
-                            editor.putBoolean("profile5", true);
-                            break;
-                        case 6:
-                            editor.putBoolean("profile6", true);
-                            break;
+                SharedPreferences.Editor editor = profiles.edit();
+                switch (profileNum) {
+                    case 1:
+                        editor.putBoolean("profile1", true);
+                        break; 
+                    case 2:
+                        editor.putBoolean("profile2", true);
+                        break; 
+                    case 3:
+                        editor.putBoolean("profile3", true);
+                        break;
+                    case 4:
+                        editor.putBoolean("profile4", true);
+                        break;
+                    case 5:
+                        editor.putBoolean("profile5", true);
+                        break;
+                    case 6:
+                        editor.putBoolean("profile6", true);
+                        break;
                     }
                     editor.commit();
 
@@ -405,6 +469,13 @@ public class AddSkills extends AppCompatActivity {
             else{
                 Toast.makeText(AddSkills.this, "Add a skill to your character", Toast.LENGTH_LONG).show();
             }
+        }
+    };
+
+    View.OnClickListener textBoxListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            
         }
     };
 }
