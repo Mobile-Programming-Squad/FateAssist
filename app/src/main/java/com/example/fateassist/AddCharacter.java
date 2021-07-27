@@ -40,6 +40,8 @@ public class AddCharacter extends AppCompatActivity {
     EditText consequence1Field;
     EditText consequence2Field;
     EditText consequence3Field;
+    TextView refreshLabel;
+    EditText refreshField;
     Button cancelButton;
     Button nextButton;
     
@@ -73,8 +75,6 @@ public class AddCharacter extends AppCompatActivity {
         Intent intent = getIntent();
         helper = new DBHelper();
         charData = new Bundle();
-        // STILL NEED TO ENABLE THE PROFILE PICTURE TO BE UPLOADED AND TRANSFERRED TO THE
-        // MAIN ACTIVITY TO UPDATE THE AVATAR
         profile = intent.getIntExtra("profile", 1);
         profileLabel = (TextView) findViewById(R.id.profileLabel);
         avatar = (ImageButton) findViewById(R.id.avatarPictureButton);
@@ -94,6 +94,8 @@ public class AddCharacter extends AppCompatActivity {
         consequence1Field = (EditText) findViewById(R.id.consequence1Field);
         consequence2Field = (EditText) findViewById(R.id.consequence2Field);
         consequence3Field = (EditText) findViewById(R.id.consequence3Field);
+        refreshLabel = (TextView) findViewById(R.id.refreshLabel);
+        refreshField = (EditText) findViewById(R.id.refreshField);
 
         cancelButton.setOnClickListener(cancelListener);
         nextButton.setOnClickListener(nextListener);
@@ -114,6 +116,7 @@ public class AddCharacter extends AppCompatActivity {
         consequence1Field.setText(charData.getCharSequence("C2"));
         consequence2Field.setText(charData.getCharSequence("C4"));
         consequence3Field.setText(charData.getCharSequence("C6"));
+        refreshField.setText(charData.getInt("REFRESH"));
 
     }
 
@@ -140,6 +143,8 @@ public class AddCharacter extends AppCompatActivity {
             String C2 = consequence1Field.getText().toString();
             String C4 = consequence2Field.getText().toString();
             String C6 = consequence3Field.getText().toString();
+            String strRefresh = refreshField.getText().toString();
+            int refresh = 0;
             boolean available = helper.ValidateCharacterName(getApplicationContext(), name);
 
             if (name.isEmpty()){
@@ -187,6 +192,19 @@ public class AddCharacter extends AppCompatActivity {
                 consequenceLabel.setTextColor(Color.RED);
                 Toast.makeText(AddCharacter.this, "Must include three character consequences", Toast.LENGTH_SHORT).show();
             }
+            if (strRefresh.isEmpty()){
+                valid = false;
+                refreshLabel.setTextColor(Color.RED);
+                Toast.makeText(AddCharacter.this, "Must include a refresh value", Toast.LENGTH_SHORT).show();
+            }else{
+                refresh = Integer.parseInt(strRefresh);
+                if (refresh < 0){
+                    valid = false;
+                    refreshLabel.setTextColor(Color.RED);
+                    Toast.makeText(AddCharacter.this, "Refresh value must be greater than 0", Toast.LENGTH_SHORT).show();
+                }
+            }
+
 
             if (valid){
                 // IF VALID, THE DATABASE VALUES GATHERED HERE WILL BE SENT TO THE ADDSKILLS CLASS
@@ -199,6 +217,7 @@ public class AddCharacter extends AppCompatActivity {
                 charData.putString("C2", C2);
                 charData.putString("C4", C4);
                 charData.putString("C6", C6);
+                charData.putInt("REFRESH", refresh);
                 Intent intent = new Intent(AddCharacter.this, AddSkills.class);
                 intent.putExtra("addCharacterBundle", charData);
                 intent.putExtra("profile", profile);

@@ -217,27 +217,27 @@
             android:id="@+id/cancelButton"
             android:layout_width="156dp"
             android:layout_height="64dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="28dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="54dp"
             android:text="Back"
             android:textAlignment="center"
             android:textSize="16sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/consequence3Field" />
+            app:layout_constraintTop_toBottomOf="@+id/refreshLabel" />
 
         <com.google.android.material.chip.Chip
             android:id="@+id/nextButton"
             android:layout_width="156dp"
             android:layout_height="64dp"
             android:layout_marginStart="27dp"
-            android:layout_marginTop="28dp"
+            android:layout_marginTop="54dp"
             android:text="Next"
             android:textAlignment="center"
             android:textSize="16sp"
             android:textStyle="bold"
             app:layout_constraintStart_toEndOf="@+id/cancelButton"
-            app:layout_constraintTop_toBottomOf="@+id/consequence3Field" />
+            app:layout_constraintTop_toBottomOf="@+id/refreshField" />
 
         <TextView
             android:id="@+id/stuntLabel"
@@ -248,6 +248,25 @@
             android:text="Stunts"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/aspectsLabel" />
+
+        <TextView
+            android:id="@+id/refreshLabel"
+            android:layout_width="57dp"
+            android:layout_height="29dp"
+            android:layout_marginStart="18dp"
+            android:text="Refresh"
+            app:layout_constraintBottom_toBottomOf="@+id/refreshField"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <EditText
+            android:id="@+id/refreshField"
+            android:layout_width="218dp"
+            android:layout_height="45dp"
+            android:layout_marginStart="9dp"
+            android:ems="10"
+            android:inputType="number"
+            app:layout_constraintStart_toEndOf="@+id/refreshLabel"
+            app:layout_constraintTop_toBottomOf="@+id/consequence3Field" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
