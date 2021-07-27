@@ -6,12 +6,22 @@
     android:layout_height="match_parent"
     tools:context=".PlayActivity">
 
+    <Button
+        android:id="@+id/plusButton"
+        android:layout_width="40dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="20dp"
+        android:text="+"
+        app:layout_constraintStart_toEndOf="@+id/fatePointsBox"
+        app:layout_constraintTop_toBottomOf="@+id/fatePointsTextView" />
+
     <TextView
         android:id="@+id/fatePointsBox"
-        android:layout_width="64dp"
-        android:layout_height="64dp"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="148dp"
+        android:layout_width="31dp"
+        android:layout_height="22dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="172dp"
         android:background="@drawable/textbox"
         android:textAlignment="center"
         android:textColor="#000000"
@@ -283,7 +293,7 @@
         android:layout_width="60dp"
         android:layout_height="21dp"
         android:layout_marginStart="9dp"
-        android:layout_marginTop="190dp"
+        android:layout_marginTop="180dp"
         android:background="@drawable/textbox"
         android:textAlignment="center"
         android:textColor="#000000"
@@ -319,7 +329,7 @@
         android:layout_width="60dp"
         android:layout_height="21dp"
         android:layout_marginStart="4dp"
-        android:layout_marginTop="56dp"
+        android:layout_marginTop="55dp"
         android:background="@drawable/textbox"
         android:textAlignment="center"
         android:textColor="#000000"
@@ -566,10 +576,10 @@
 
     <TextView
         android:id="@+id/fatePointsTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="29dp"
-        android:layout_marginTop="42dp"
+        android:layout_width="77dp"
+        android:layout_height="19dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="52dp"
         android:text="Fate Points:"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/diceSpinner" />
@@ -577,11 +587,21 @@
     <Button
         android:id="@+id/refreshButton"
         android:layout_width="111dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="84dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="13dp"
+        android:layout_marginTop="20dp"
         android:text="refresh"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fatePointsBox" />
+
+    <Button
+        android:id="@+id/minusButton"
+        android:layout_width="40dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="8dp"
+        android:text="-"
+        app:layout_constraintEnd_toStartOf="@+id/fatePointsBox"
         app:layout_constraintTop_toBottomOf="@+id/fatePointsTextView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

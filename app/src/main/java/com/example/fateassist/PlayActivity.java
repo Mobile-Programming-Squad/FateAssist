@@ -11,13 +11,15 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.Random;
 
 import static com.example.fateassist.MainActivity.PREFS_NAME;
 
-public class PlayActivity extends AppCompatActivity {
+public class PlayActivity<refreshButton> extends AppCompatActivity {
     String name = "";
+    int tempInt;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +28,9 @@ public class PlayActivity extends AppCompatActivity {
 
         Button rollButton = (Button) findViewById(R.id.rollButton);
         Spinner diceSpinner = findViewById(R.id.diceSpinner);
+        Button refreshButton = (Button) findViewById(R.id.refreshButton);
+        Button plusButton = (Button) findViewById(R.id.plusButton);
+        Button minusButton = (Button) findViewById(R.id.minusButton);
         TextView rolledTextView = findViewById(R.id.rolledTextView);
         CheckBox psBox1 = findViewById(R.id.physicalStressBox1);
         CheckBox psBox2 = findViewById(R.id.physicalStressBox2);
@@ -70,8 +75,7 @@ public class PlayActivity extends AppCompatActivity {
         TextView A3 = findViewById(R.id.A3);
         TextView A4 = findViewById(R.id.A4);
         TextView A5 = findViewById(R.id.A5);
-        TextView fatePointsBox = findViewById(R.id.fatePointsBox);
-
+        TextView fatePointsBox = (TextView) findViewById(R.id.fatePointsBox);
 
 
         //pass in the name of the profile here;
@@ -243,9 +247,10 @@ public class PlayActivity extends AppCompatActivity {
             A5.setText(temp);
 
         //Fate points
-        temp = currentValues.getString("FP");
-        //if(temp != null)
-            fatePointsBox.setText(temp);
+        Integer tempInt = currentValues.getInt("FP");
+            fatePointsBox.setText(String.valueOf(tempInt));
+
+
 
 
 
@@ -268,8 +273,39 @@ public class PlayActivity extends AppCompatActivity {
                 rolledTextView.setText("You rolled a: " + finalRollString);
             }
         });
-      }
+
+        refreshButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
 
+                //refresh value
+                int tempInt = currentValues.getInt("REFRESH");
+                  fatePointsBox.setText(String.valueOf(tempInt));
 
+
+            }
+        });
+
+        plusButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String currentFatePoint = (String) fatePointsBox.getText();
+                int tempFatePoint = Integer.parseInt(currentFatePoint);
+                tempFatePoint++;
+                fatePointsBox.setText(String.valueOf(tempFatePoint));
+            }
+        });
+
+        minusButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String currentFatePoint = (String) fatePointsBox.getText();
+                int tempFatePoint = Integer.parseInt(currentFatePoint);
+                tempFatePoint--;
+                fatePointsBox.setText(String.valueOf(tempFatePoint));
+            }
+        });
+
+      }//end oncreate
 }
