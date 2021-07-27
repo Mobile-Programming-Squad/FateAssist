@@ -263,6 +263,7 @@
             android:layout_width="218dp"
             android:layout_height="45dp"
             android:layout_marginStart="9dp"
+            android:layout_marginTop="44dp"
             android:ems="10"
             android:inputType="number"
             app:layout_constraintStart_toEndOf="@+id/refreshLabel"
